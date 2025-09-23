@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Sparkitt</title>
+  <link rel="stylesheet" href="../assest/css/profile.css">
+  
+</head>
+<body>
+  <!-- Header -->
+  <div id="header"></div>
+
+  <!-- محتوى الصفحة -->
+  <div class="container">
+    <h1>Company Profile</h1>
+    <p></p>
+    <a href="../media/files/profile.pptx" class="download-btn" download>Download Company Profile</a>
+
+    <!-- الصور المتحركة -->
+<div class="slideshow">
+  <img src="../media/image/Company Profile/photo(1).jpg" class="active" alt="Slide 1">
+  <img src="../media/image/Company Profile/photo(2).jpg" alt="Slide 2">
+  <img src="../media/image/Company Profile/photo(3).jpg" alt="Slide 3">
+  <img src="../media/image/Company Profile/photo(4).jpg" alt="Slide 4">
+  <img src="../media/image/Company Profile/photo(5).jpg" alt="Slide 5">
+  <img src="../media/image/Company Profile/photo(6).jpg" alt="Slide 6">
+  <img src="../media/image/Company Profile/photo(7).jpg" alt="Slide 7">
+  <img src="../media/image/Company Profile/photo(8).jpg" alt="Slide 8">
+  <img src="../media/image/Company Profile/photo(9).jpg" alt="Slide 9">
+  <img src="../media/image/Company Profile/photo(10).jpg" alt="Slide 10">
+  <img src="../media/image/Company Profile/photo(11).jpg" alt="Slide 11">
+  <img src="../media/image/Company Profile/photo(12).jpg" alt="Slide 12">
+  <img src="../media/image/Company Profile/photo(13).jpg" alt="Slide 13">
+  <img src="../media/image/Company Profile/photo(14).jpg" alt="Slide 14">
+  <img src="../media/image/Company Profile/photo(15).jpg" alt="Slide 15">
+  <img src="../media/image/Company Profile/photo(16).jpg" alt="Slide 16">
+  <img src="../media/image/Company Profile/photo(17).jpg" alt="Slide 17">
+  <img src="../media/image/Company Profile/photo(18).jpg" alt="Slide 18">
+  <img src="../media/image/Company Profile/photo(19).jpg" alt="Slide 19">
+  <img src="../media/image/Company Profile/photo(20).jpg" alt="Slide 20">
+  <img src="../media/image/Company Profile/photo(21).jpg" alt="Slide 21">
+  <img src="../media/image/Company Profile/photo(22).jpg" alt="Slide 22">
+  <img src="../media/image/Company Profile/photo(23).jpg" alt="Slide 23">
+  <img src="../media/image/Company Profile/photo(24).jpg" alt="Slide 24">
+  <img src="../media/image/Company Profile/photo(25).jpg" alt="Slide 25">
+  <img src="../media/image/Company Profile/photo(26).jpg" alt="Slide 26">
+</div>
+
+  </div>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script>
+    // إدخال الهيدر والفوتر
+    fetch("../header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+    fetch("../footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+
+    // الصور المتحركة (Slideshow)
+    let slides = document.querySelectorAll(".slideshow img");
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 2000);
+  </script>
+</body>
+</html>

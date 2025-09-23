@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>من نحن - Sparkitt</title>
+    <meta name="description" content="تعرف على شركة Sparkitt وخدماتنا المتميزة">
+    <meta name="keyword" content="Sparkitt, شركة, خدمات, تقنية">
+    <meta name="author" content="moawya nafash">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="refresh" content="900">
+
+    <!-- ربط CSS الهيدر -->
+    <link rel="stylesheet" href="assest/css/header.css">
+    <link rel="stylesheet" href="assest/css/footer.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #fff;
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff4100, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-text h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #ff4100;
+        }
+
+        .about-text p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 65, 0, 0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 65, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 65, 0, 0.2);
+            border-color: #ff4100;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff4100;
+        }
+
+        .feature-card p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-header h1 {
+                font-size: 2.5em;
+            }
+            
+            .about-text h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- تضمين الهيدر -->
+    <div id="header"></div>
+
+    <!-- محتوى الصفحة -->
+    <div class="container">
+        <div class="about-header">
+            <h1>من نحن</h1>
+            <p>نحن فريق من الخبراء المتفانين في تقديم أفضل الحلول التقنية</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h2>رؤيتنا</h2>
+                <p>نطمح لأن نكون الشركة الرائدة في مجال الحلول التقنية المبتكرة، نساهم في تطوير الأعمال وتحقيق النجاح لعملائنا من خلال تقديم خدمات متميزة ومبتكرة.</p>
+                
+                <h2>مهمتنا</h2>
+                <p>نلتزم بتقديم حلول تقنية متطورة وموثوقة تلبي احتياجات عملائنا وتساعدهم على تحقيق أهدافهم التجارية بكفاءة وفعالية عالية.</p>
+            </div>
+            
+            <div class="about-image">
+                <img src="media/image/logo.png" alt="Sparkitt Logo" style="max-width: 300px;">
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>الخبرة</h3>
+                <p>فريق من الخبراء المتخصصين في مختلف المجالات التقنية مع سنوات من الخبرة العملية</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>الابتكار</h3>
+                <p>نستخدم أحدث التقنيات والأساليب المبتكرة لتقديم حلول متميزة ومتطورة</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>الجودة</h3>
+                <p>نلتزم بأعلى معايير الجودة في جميع مشاريعنا وخدماتنا التي نقدمها للعملاء</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // إدخال الهيدر والفوتر
+        fetch("header.html").then(res => res.text()).then(data => {
+            document.getElementById("header").innerHTML = data;
+        });
+
+        fetch("footer.html").then(res => res.text()).then(data => {
+            document.getElementById("footer").innerHTML = data;
+            // تحميل JavaScript المحسن
+            const script = document.createElement('script');
+            script.src = 'assest/js/header-footer.js';
+            document.head.appendChild(script);
+        });
+    </script>
+</body>
+
+</html>
