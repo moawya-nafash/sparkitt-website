@@ -15,6 +15,9 @@ header {
   padding: 10px 40px;
   position: relative; /* حتى يظهر فوق الفيديو */
   z-index: 10;
+  /* دعم WebKit لـ Safari */
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
 }
 
 /* صندوق الهيدر الداخلي */

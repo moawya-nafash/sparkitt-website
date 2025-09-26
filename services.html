@@ -1,116 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
-    <title>sparkitt</title>
-    <meta name="description" content="">
-    <meta name="keyword" content="">
+    <title>Services - Sparkitt</title>
+    <meta name="description" content="Discover our comprehensive technology services and solutions">
+    <meta name="keyword" content="Sparkitt, services, technology solutions, web development, mobile apps">
     <meta name="author" content="moawya nafash">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="refresh" content="900">
 
-    <!-- ربط CSS الهيدر -->
+    <!-- Link CSS files -->
     <link rel="stylesheet" href="assest/css/header.css">
+    <link rel="stylesheet" href="assest/css/footer.css">
     <link rel="stylesheet" href="assest/css/about.css">
 
-    <style>
-        /* فيديو الخلفية يغطي الشاشة كاملة */
-        #bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* يكون تحت كل العناصر */
-        }
-
-        /* المحتوى فوق الفيديو */
-        .content {
-            position: relative;
-            z-index: 1;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            top: 40%;
-            font-size: 2em;
-            font-family: Arial, sans-serif;
-            padding-top: 60px;
-        }
-
-        /* تعديل الهيدر ليظهر فوق الفيديو */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95));
-            /* دعم WebKit لـ Safari */
-            -webkit-backdrop-filter: blur(15px);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 65, 0, 0.2);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* Header fade out effect when scrolling */
-        header.scrolled {
-            transform: translateY(-100%);
-            opacity: 0;
-            /* دعم WebKit لـ Safari */
-            -webkit-backdrop-filter: blur(0px);
-            backdrop-filter: blur(0px);
-        }
-
-        /* Header compact mode when scrolling down */
-        header.compact {
-            transform: translateY(0);
-            opacity: 1;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(20, 20, 20, 0.98));
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        header.compact .header-container {
-            padding: 5px 40px;
-            height: 50px;
-        }
-
-        header.compact .logo img {
-            height: 35px;
-        }
-
-        header.compact .nav-links a {
-            font-size: 14px;
-        }
-
-        header.compact .demo-btn a {
-            padding: 6px 16px;
-            font-size: 13px;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- فيديو الخلفية -->
-    <video autoplay muted loop id="bg-video">
-        <source src="media/videos/sparkitt1.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
-
-    <!-- تضمين الهيدر -->
+    <!-- Include header -->
     <div id="header"></div>
 
-    <!-- محتوى الصفحة -->
-    <div class="content">
-        <h1>Welcome to Sparkitt</h1>
-        <p>We create amazing digital experiences</p>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="about-header">
+            <h1>Our Services</h1>
+            <p>Comprehensive technology solutions tailored to your business needs</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>Web Development</h3>
+                <p>Custom web applications built with modern technologies and best practices for optimal performance and user experience.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Mobile Development</h3>
+                <p>Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Cloud Solutions</h3>
+                <p>Scalable cloud infrastructure and migration services to help your business grow and adapt to changing demands.</p>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <div id="footer"></div>
+
     <script>
-        // Load header
+        // Load header and footer
         fetch("pages/header.html")
             .then(res => {
                 if (!res.ok) {
@@ -147,6 +87,24 @@
                 `;
                 // Initialize scroll effect after fallback header is loaded
                 initScrollEffect();
+            });
+
+        fetch("pages/footer.html")
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to load footer');
+                }
+                return res.text();
+            })
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+                // Load enhanced JavaScript
+                const script = document.createElement('script');
+                script.src = 'assest/js/header-footer.js';
+                document.head.appendChild(script);
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
             });
 
         // Header scroll effect function
