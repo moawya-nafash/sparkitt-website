@@ -242,6 +242,7 @@ header.compact .demo-btn a {
         flex-direction: column;
         gap: 15px;
         height: auto;
+        min-height: 100px;
     }
 
     .nav-links {
@@ -262,12 +263,17 @@ header.compact .demo-btn a {
     header.compact .header-container {
         padding: 5px 20px;
         height: auto;
+        min-height: 100px;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding-top: 80px;
+        padding-top: 130px !important;
+    }
+    
+    .header-container {
+        min-height: 110px;
     }
 
     .container {
@@ -304,5 +310,39 @@ header.compact .demo-btn a {
 
     header.compact .logo img {
         height: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 15px 10px;
+    }
+    
+    .about-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .about-text h2 {
+        font-size: 1.3em;
+    }
+    
+    .feature-card {
+        padding: 25px 15px;
+    }
+    
+    .nav-links {
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        font-size: 12px;
+    }
+    
+    body {
+        padding-top: 140px !important;
+    }
+    
+    .header-container {
+        min-height: 120px;
     }
 }

@@ -11,8 +11,8 @@
     <meta name="refresh" content="900">
 
     <!-- ربط CSS الهيدر -->
-    <link rel="stylesheet" href="assest/css/header.css">
-    <link rel="stylesheet" href="assest/css/about.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/about.css">
 
     <style>
         /* فيديو الخلفية يغطي الشاشة كاملة */
@@ -36,6 +36,43 @@
             font-size: 2em;
             font-family: Arial, sans-serif;
             padding-top: 60px;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .content {
+                font-size: 1.5em;
+                top: 35%;
+                padding-top: 80px;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                font-size: 1.2em;
+                top: 30%;
+                padding-top: 100px;
+            }
+            
+            body {
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .content {
+                font-size: 1em;
+                top: 25%;
+                padding-top: 120px;
+            }
+            
+            body {
+                padding-top: 140px;
+            }
         }
 
         /* تعديل الهيدر ليظهر فوق الفيديو */
@@ -130,17 +167,17 @@
                     <header>
                         <div class="header-container">
                             <div class="logo">
-                                <img src="media/image/logo.png" alt="Logo" />
+                                <img src="media/images/logo.png" alt="Logo" />
                             </div>
                             <nav class="nav-links">
                                 <a href="index.html">Home</a>
                                 <a href="pages/about.html">About Us</a>
-                                <a href="services.html">Services</a>
-                                <a href="case-study.html">Case Study</a>
+                                <a href="pages/services.html">Services</a>
+                                <a href="pages/case-study.html">Case Study</a>
                                 <a href="pages/profile.html">Company Profile</a>
                             </nav>
                             <div class="demo-btn">
-                                <a href="book-demo.html">Book For Free Demo</a>
+                                <a href="pages/book-demo.html">Book For Free Demo</a>
                             </div>
                         </div>
                     </header>

@@ -242,6 +242,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding-top: 120px !important;
+    }
+    
     .form-container {
         margin: 20px;
         padding: 30px 20px;
@@ -270,6 +274,10 @@
 }
 
 @media (max-width: 480px) {
+    body {
+        padding-top: 130px !important;
+    }
+    
     .form-container {
         margin: 10px;
         padding: 20px 15px;
@@ -281,6 +289,33 @@
     
     .form-title p {
         font-size: 1em;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding-top: 140px !important;
+    }
+    
+    .form-container {
+        margin: 5px;
+        padding: 15px 10px;
+    }
+    
+    .form-title h2 {
+        font-size: 1.3em;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 10px;
+        font-size: 0.8em;
+    }
+    
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
     }
 }
 

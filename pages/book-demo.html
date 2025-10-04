@@ -11,10 +11,10 @@
     <meta name="refresh" content="900">
 
     <!-- Link CSS files -->
-    <link rel="stylesheet" href="assest/css/header.css">
-    <link rel="stylesheet" href="assest/css/footer.css">
-    <link rel="stylesheet" href="assest/css/about.css">
-    <link rel="stylesheet" href="assest/css/form.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
 
 </head>
 
@@ -202,7 +202,7 @@
 
     <script>
         // Load header and footer
-        fetch("pages/header.html")
+        fetch("header.html")
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Failed to load header');
@@ -221,14 +221,14 @@
                     <header>
                         <div class="header-container">
                             <div class="logo">
-                                <img src="media/image/logo.png" alt="Logo" />
+                                <img src="../media/images/logo.png" alt="Logo" />
                             </div>
                             <nav class="nav-links">
-                                <a href="index.html">Home</a>
-                                <a href="pages/about.html">About Us</a>
+                                <a href="../index.html">Home</a>
+                                <a href="about.html">About Us</a>
                                 <a href="services.html">Services</a>
                                 <a href="case-study.html">Case Study</a>
-                                <a href="pages/profile.html">Company Profile</a>
+                                <a href="profile.html">Company Profile</a>
                             </nav>
                             <div class="demo-btn">
                                 <a href="book-demo.html">Book For Free Demo</a>
@@ -240,7 +240,7 @@
                 initScrollEffect();
             });
 
-        fetch("pages/footer.html")
+        fetch("footer.html")
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Failed to load footer');
@@ -251,7 +251,7 @@
                 document.getElementById("footer").innerHTML = data;
                 // Load enhanced JavaScript
                 const script = document.createElement('script');
-                script.src = 'assest/js/header-footer.js';
+                script.src = '../assets/js/header-footer.js';
                 document.head.appendChild(script);
             })
             .catch(error => {
