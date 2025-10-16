@@ -151,10 +151,7 @@ header.compact .demo-btn a {
 .about-header h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    background: linear-gradient(45deg, #ff4100, #ff6b35);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ff4100;
 }
 
 .about-content {
