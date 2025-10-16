@@ -50,62 +50,84 @@
     <div id="footer"></div>
 
     <script>
-        // Load header and footer
-        fetch("header.html")
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Failed to load header');
-                }
-                return res.text();
-            })
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                // Initialize scroll effect after header is loaded
-                initScrollEffect();
-            })
-            .catch(error => {
-                console.error('Error loading header:', error);
-                // Add fallback header in case of loading failure
-                document.getElementById("header").innerHTML = `
-                    <header>
-                        <div class="header-container">
-                            <div class="logo">
-                                <img src="../media/images/logo.png" alt="Logo" />
-                            </div>
-                            <nav class="nav-links">
-                                <a href="../index.html">Home</a>
-                                <a href="about.html">About Us</a>
-                                <a href="services.html">Services</a>
-                                <a href="case-study.html">Case Study</a>
-                                <a href="profile.html">Company Profile</a>
-                            </nav>
-                            <div class="demo-btn">
-                                <a href="book-demo.html">Book For Free Demo</a>
-                            </div>
+        // Load header (file protocol safe)
+        if (location.protocol === 'file:') {
+            document.getElementById("header").innerHTML = `
+                <header>
+                    <div class="header-container">
+                        <div class="logo">
+                            <a href="../index.html">
+                                <img src="../media/images/sparkitt logo.svg" alt="Logo" />
+                            </a>
                         </div>
-                    </header>
-                `;
-                // Initialize scroll effect after fallback header is loaded
-                initScrollEffect();
-            });
+                        <nav class="nav-links">
+                            <a href="../index.html">Home</a>
+                            <a href="about.html">About Us</a>
+                            <a href="services.html">Services</a>
+                            <a href="case-study.html">Case Study</a>
+                            <a href="profile.html">Company Profile</a>
+                        </nav>
+                        <div class="demo-btn">
+                            <a href="book-demo.html">Book For Free Demo</a>
+                        </div>
+                    </div>
+                </header>
+            `;
+            initScrollEffect();
+        } else {
+            fetch("header.html")
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to load header');
+                    }
+                    return res.text();
+                })
+                .then(data => {
+                    document.getElementById("header").innerHTML = data;
+                    initScrollEffect();
+                })
+                .catch(() => {
+                    document.getElementById("header").innerHTML = `
+                        <header>
+                            <div class="header-container">
+                                <div class="logo">
+                                    <a href="../index.html">
+                                        <img src="../media/images/sparkitt logo.svg" alt="Logo" />
+                                    </a>
+                                </div>
+                                <nav class="nav-links">
+                                    <a href="../index.html">Home</a>
+                                    <a href="about.html">About Us</a>
+                                    <a href="services.html">Services</a>
+                                    <a href="case-study.html">Case Study</a>
+                                    <a href="profile.html">Company Profile</a>
+                                </nav>
+                                <div class="demo-btn">
+                                    <a href="book-demo.html">Book For Free Demo</a>
+                                </div>
+                            </div>
+                        </header>
+                    `;
+                    initScrollEffect();
+                });
+        }
 
-        fetch("footer.html")
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Failed to load footer');
-                }
-                return res.text();
-            })
-            .then(data => {
-                document.getElementById("footer").innerHTML = data;
-                // Load enhanced JavaScript
-                const script = document.createElement('script');
-                script.src = '../assets/js/header-footer.js';
-                document.head.appendChild(script);
-            })
-            .catch(error => {
-                console.error('Error loading footer:', error);
-            });
+        if (location.protocol !== 'file:') {
+            fetch("footer.html")
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to load footer');
+                    }
+                    return res.text();
+                })
+                .then(data => {
+                    document.getElementById("footer").innerHTML = data;
+                    const script = document.createElement('script');
+                    script.src = '../assets/js/header-footer.js';
+                    document.head.appendChild(script);
+                })
+                .catch(() => {});
+        }
 
         // Header scroll effect function
         function initScrollEffect() {

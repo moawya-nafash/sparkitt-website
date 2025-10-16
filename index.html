@@ -116,7 +116,7 @@
         }
 
         header.compact .logo img {
-            height: 35px;
+            height: 48px;
         }
 
         header.compact .nav-links a {
@@ -127,10 +127,24 @@
             padding: 6px 16px;
             font-size: 13px;
         }
+        /* Partner logo under OUR PARTNER */
+        .partner-logo {
+            display: block;
+            margin: 12px auto 0;
+            max-width: 280px;
+            width: 40%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            .partner-logo { width: 55%; max-width: 240px; }
+        }
+        @media (max-width: 480px) {
+            .partner-logo { width: 65%; max-width: 220px; }
+        }
     </style>
 </head>
 
-<body>
+<body class="has-bg-video">
     <!-- فيديو الخلفية -->
     <video autoplay muted loop id="bg-video">
         <source src="media/videos/sparkitt1.mp4" type="video/mp4">
@@ -142,49 +156,73 @@
 
     <!-- محتوى الصفحة -->
     <div class="content">
-        <h1>Welcome to Sparkitt</h1>
-        <p>We create amazing digital experiences</p>
+        	<h1><strong><p>Ready to understand your customers</p> <p> with 95%+ accuracy ?</p></strong></h1>
+        	<h1><p>OUR PARTNER</p></h1>
+        	<img class="partner-logo" src="media/images/LimLAB.png" alt="OUR PARTNER - LimLAB" />
     </div>
 
     <script>
-        // Load header
-        fetch("pages/header.html")
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Failed to load header');
-                }
-                return res.text();
-            })
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                // Initialize scroll effect after header is loaded
-                initScrollEffect();
-            })
-            .catch(error => {
-                console.error('Error loading header:', error);
-                // Add fallback header in case of loading failure
-                document.getElementById("header").innerHTML = `
-                    <header>
-                        <div class="header-container">
-                            <div class="logo">
-                                <img src="media/images/logo.png" alt="Logo" />
-                            </div>
-                            <nav class="nav-links">
-                                <a href="index.html">Home</a>
-                                <a href="pages/about.html">About Us</a>
-                                <a href="pages/services.html">Services</a>
-                                <a href="pages/case-study.html">Case Study</a>
-                                <a href="pages/profile.html">Company Profile</a>
-                            </nav>
-                            <div class="demo-btn">
-                                <a href="pages/book-demo.html">Book For Free Demo</a>
-                            </div>
+        // Load header (skip fetch on local file protocol to avoid errors)
+        if (location.protocol === 'file:') {
+            document.getElementById("header").innerHTML = `
+                <header>
+                    <div class="header-container">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="media/images/sparkitt logo.svg" alt="Logo" />
+                            </a>
                         </div>
-                    </header>
-                `;
-                // Initialize scroll effect after fallback header is loaded
-                initScrollEffect();
-            });
+                        <nav class="nav-links">
+                            <a href="index.html">Home</a>
+                            <a href="pages/about.html">About Us</a>
+                            <a href="pages/services.html">Services</a>
+                            <a href="pages/case-study.html">Case Study</a>
+                            <a href="pages/profile.html">Company Profile</a>
+                        </nav>
+                        <div class="demo-btn">
+                            <a href="pages/book-demo.html">Book For Free Demo</a>
+                        </div>
+                    </div>
+                </header>
+            `;
+            initScrollEffect();
+        } else {
+            fetch("pages/header.html")
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to load header');
+                    }
+                    return res.text();
+                })
+                .then(data => {
+                    document.getElementById("header").innerHTML = data;
+                    initScrollEffect();
+                })
+                .catch(() => {
+                    document.getElementById("header").innerHTML = `
+                        <header>
+                            <div class="header-container">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="media/images/sparkitt logo.svg" alt="Logo" />
+                                    </a>
+                                </div>
+                                <nav class="nav-links">
+                                    <a href="index.html">Home</a>
+                                    <a href="pages/about.html">About Us</a>
+                                    <a href="pages/services.html">Services</a>
+                                    <a href="pages/case-study.html">Case Study</a>
+                                    <a href="pages/profile.html">Company Profile</a>
+                                </nav>
+                                <div class="demo-btn">
+                                    <a href="pages/book-demo.html">Book For Free Demo</a>
+                                </div>
+                            </div>
+                        </header>
+                    `;
+                    initScrollEffect();
+                });
+        }
 
         // Header scroll effect function
         function initScrollEffect() {
