@@ -5,6 +5,10 @@ footer {
     padding: 40px 0;
     margin-top: 60px;
     border-top: 1px solid rgba(255, 65, 0, 0.2);
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    clear: both;
 }
 
 .footer-container {
@@ -33,10 +37,101 @@ footer {
     text-decoration: none;
     line-height: 1.6;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .footer-section a:hover {
     color: #ff4100;
+}
+
+/* Contact Info Icons */
+.icon-phone::before {
+    content: "📞";
+    margin-right: 8px;
+}
+
+.icon-email::before {
+    content: "✉️";
+    margin-right: 8px;
+}
+
+.icon-website::before {
+    content: "🌐";
+    margin-right: 8px;
+}
+
+.icon-location::before {
+    content: "📍";
+    margin-right: 8px;
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: rgba(255, 65, 0, 0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 65, 0, 0.2);
+}
+
+.social-links a:hover {
+    background: rgba(255, 65, 0, 0.2);
+    border-color: #ff4100;
+    transform: translateY(-2px);
+}
+
+.icon-facebook::before {
+    content: "📘";
+    margin-right: 8px;
+}
+
+.icon-twitter::before {
+    content: "🐦";
+    margin-right: 8px;
+}
+
+.icon-linkedin::before {
+    content: "💼";
+    margin-right: 8px;
+}
+
+.icon-instagram::before {
+    content: "📷";
+    margin-right: 8px;
+}
+
+/* Booking Button */
+.booking-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff4100, #ff6b35);
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 65, 0, 0.3);
+}
+
+.booking-btn:hover {
+    background: linear-gradient(135deg, #ff6b35, #ff4100);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 65, 0, 0.4);
 }
 
 .footer-bottom {
@@ -44,6 +139,13 @@ footer {
     padding-top: 20px;
     text-align: center;
     color: #888;
+}
+
+/* Ensure footer is visible */
+#footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Responsive Design */
@@ -55,5 +157,33 @@ footer {
     
     footer {
         padding: 30px 0;
+    }
+    
+    .social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .social-links a {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .social-links {
+        flex-direction: column;
+    }
+    
+    .social-links a {
+        width: 100%;
+        max-width: 200px;
     }
 }

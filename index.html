@@ -12,6 +12,7 @@
 
     <!-- ربط CSS الهيدر -->
     <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/about.css">
 
     <style>
@@ -93,6 +94,19 @@
             opacity: 1;
         }
 
+        /* التأكد من ظهور الـ footer */
+        #footer {
+            position: relative;
+            z-index: 1001;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 65, 0, 0.2);
+            width: 100%;
+            clear: both;
+        }
+
         /* Header fade out effect when scrolling */
         header.scrolled {
             transform: translateY(-100%);
@@ -161,128 +175,11 @@
         	<img class="partner-logo" src="media/images/LimLAB.png" alt="OUR PARTNER - LimLAB" />
     </div>
 
-    <script>
-        // Load header (skip fetch on local file protocol to avoid errors)
-        if (location.protocol === 'file:') {
-            document.getElementById("header").innerHTML = `
-                <header>
-                    <div class="header-container">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="media/images/sparkitt logo.svg" alt="Logo" />
-                            </a>
-                        </div>
-                        <nav class="nav-links">
-                            <a href="index.html">Home</a>
-                            <a href="pages/about.html">About Us</a>
-                            <a href="pages/services.html">Services</a>
-                            <a href="pages/case-study.html">Case Study</a>
-                            <a href="pages/profile.html">Company Profile</a>
-                        </nav>
-                        <div class="demo-btn">
-                            <a href="pages/book-demo.html">Book For Free Demo</a>
-                        </div>
-                    </div>
-                </header>
-            `;
-            initScrollEffect();
-        } else {
-            fetch("pages/header.html")
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error('Failed to load header');
-                    }
-                    return res.text();
-                })
-                .then(data => {
-                    document.getElementById("header").innerHTML = data;
-                    initScrollEffect();
-                })
-                .catch(() => {
-                    document.getElementById("header").innerHTML = `
-                        <header>
-                            <div class="header-container">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="media/images/sparkitt logo.svg" alt="Logo" />
-                                    </a>
-                                </div>
-                                <nav class="nav-links">
-                                    <a href="index.html">Home</a>
-                                    <a href="pages/about.html">About Us</a>
-                                    <a href="pages/services.html">Services</a>
-                                    <a href="pages/case-study.html">Case Study</a>
-                                    <a href="pages/profile.html">Company Profile</a>
-                                </nav>
-                                <div class="demo-btn">
-                                    <a href="pages/book-demo.html">Book For Free Demo</a>
-                                </div>
-                            </div>
-                        </header>
-                    `;
-                    initScrollEffect();
-                });
-        }
+    <!-- Footer -->
+    <div id="footer"></div>
 
-        // Header scroll effect function
-        function initScrollEffect() {
-            let lastScrollTop = 0;
-            let scrollTimeout;
-            const header = document.querySelector('header');
-            let ticking = false;
-
-            function updateHeader() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollDelta = scrollTop - lastScrollTop;
-                
-                // Clear any existing timeout
-                clearTimeout(scrollTimeout);
-                
-                if (scrollTop > 50) {
-                    // Scrolling down - add compact mode first, then hide
-                    if (scrollDelta > 0 && scrollTop > 100) {
-                        header.classList.add('compact');
-                        header.classList.remove('scrolled');
-                        
-                        // Hide header after a short delay
-                        scrollTimeout = setTimeout(() => {
-                            if (scrollTop > lastScrollTop) {
-                                header.classList.remove('compact');
-                                header.classList.add('scrolled');
-                            }
-                        }, 150);
-                    } else if (scrollDelta < 0) {
-                        // Scrolling up - show header immediately
-                        header.classList.remove('scrolled', 'compact');
-                    }
-                } else {
-                    // At top - always show header in normal mode
-                    header.classList.remove('scrolled', 'compact');
-                }
-                
-                lastScrollTop = scrollTop;
-                ticking = false;
-            }
-
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateHeader);
-                    ticking = true;
-                }
-            }
-
-            // Add scroll event listener with throttling
-            window.addEventListener('scroll', requestTick, { passive: true });
-            
-            // Add mouse movement detection to show header when hovering
-            document.addEventListener('mousemove', (e) => {
-                if (e.clientY < 100 && header.classList.contains('scrolled')) {
-                    header.classList.remove('scrolled');
-                    header.classList.add('compact');
-                }
-            });
-        }
-    </script>
+    <!-- Load Header and Footer -->
+    <script src="assets/js/header-footer.js"></script>
 </body>
 
 </html>
