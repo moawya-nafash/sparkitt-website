@@ -243,12 +243,12 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        padding-top: 120px !important;
+        padding-top: 95px !important;
     }
     
     .form-container {
-        margin: 20px;
-        padding: 30px 20px;
+        margin: 16px;
+        padding: 26px 16px;
     }
     
     .form-row {
@@ -275,12 +275,12 @@
 
 @media (max-width: 480px) {
     body {
-        padding-top: 130px !important;
+        padding-top: 105px !important;
     }
     
     .form-container {
-        margin: 10px;
-        padding: 20px 15px;
+        margin: 8px;
+        padding: 18px 12px;
     }
     
     .form-title h2 {
@@ -294,7 +294,7 @@
 
 @media (max-width: 360px) {
     body {
-        padding-top: 140px !important;
+        padding-top: 110px !important;
     }
     
     .form-container {

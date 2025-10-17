@@ -11,7 +11,8 @@ function loadHeader() {
     
     // Determine correct paths based on current location
     const homePath = isInPagesFolder ? '../index.html' : 'index.html';
-    const logoPath = isInPagesFolder ? '../media/images/sparkitt logo.svg' : 'media/images/sparkitt logo.svg';
+    // use logo.png (no spaces in filename) for consistent path across pages
+    const logoPath = isInPagesFolder ? '../media/images/logo.png' : 'media/images/logo.png';
     
     const headerHTML = `
         <header>
@@ -82,10 +83,10 @@ function loadFooter() {
                             <a href="https://web.facebook.com/profile.php?id=61567060547596" target="_blank" rel="noopener">
                                 <i class="icon-facebook"></i> Facebook
                             </a>
-                            <a href="https://x.com/Sparkittjo" target="_blank" rel="noopener">
+                            <a href="https://twitter.com/Sparkittjo" target="_blank" rel="noopener noreferrer">
                                 <i class="icon-twitter"></i> Twitter
                             </a>
-                            <a href="https://www.linkedin.com/company/sparkitt/posts/?feedView=all" target="_blank" rel="noopener">
+                            <a href="https://www.linkedin.com/company/sparkitt" target="_blank" rel="noopener noreferrer">
                                 <i class="icon-linkedin"></i> LinkedIn
                             </a>
                             <a href="https://www.instagram.com/sparkitt.jo/" target="_blank" rel="noopener">

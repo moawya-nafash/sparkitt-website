@@ -44,7 +44,7 @@ header .header-container {
 
 /* اللوجو */
 header .logo img {
-  height: 80px;
+  height: 100px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -105,7 +105,7 @@ header .demo-btn a:hover {
   }
   
   header .logo img {
-    height: 64px;
+    height: 80px;
   }
   
   header .nav-links {
@@ -141,7 +141,7 @@ header .demo-btn a:hover {
   }
   
   header .logo img {
-    height: 56px;
+    height: 64px;
   }
   
   header .nav-links {
@@ -175,7 +175,7 @@ header .demo-btn a:hover {
   }
   
   header .logo img {
-    height: 48px;
+    height: 56px;
   }
   
   header .nav-links {

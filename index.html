@@ -142,6 +142,16 @@
             font-size: 13px;
         }
         /* Partner logo under OUR PARTNER */
+        /* add extra vertical spacing between consecutive headings inside .content */
+        .content h1 + h1 {
+            margin-top: 28px;
+        }
+        @media (max-width: 768px) {
+            .content h1 + h1 { margin-top: 22px; }
+        }
+        @media (max-width: 480px) {
+            .content h1 + h1 { margin-top: 18px; }
+        }
         .partner-logo {
             display: block;
             margin: 12px auto 0;
@@ -171,8 +181,12 @@
     <!-- محتوى الصفحة -->
     <div class="content">
         	<h1><strong><p>Ready to understand your customers</p> <p> with 95%+ accuracy ?</p></strong></h1>
+         
         	<h1><p>OUR PARTNER</p></h1>
-        	<img class="partner-logo" src="media/images/LimLAB.png" alt="OUR PARTNER - LimLAB" />
+            
+            <a href="https://www.instagram.com/limebuzz.marketing/?hl=en" target="_blank" rel="noopener">
+                <img class="partner-logo" src="media/images/LimLAB.png" alt="OUR PARTNER - LimLAB" loading="lazy" />
+            </a>
     </div>
 
     <!-- Footer -->
