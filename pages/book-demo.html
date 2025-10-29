@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/about.css">
     <link rel="stylesheet" href="../assets/css/form.css">
+    <link rel="stylesheet" href="../assets/css/jotform-custom.css">
 
 </head>
 
@@ -47,131 +48,28 @@
             <p>Sending your request...</p>
         </div>
 
-        <!-- Demo Booking Form -->
+        <!-- Demo Booking Form (embedded via JotForm) -->
         <div class="form-container">
             <div class="form-title">
                 <h2>Book Your Free Demo</h2>
                 <p>Fill out the form below and we'll get back to you soon</p>
             </div>
 
-            <form id="demoForm" novalidate>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
-                        <div class="error-text">Please enter your first name</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="lastName">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
-                        <div class="error-text">Please enter your last name</div>
-                    </div>
-                </div>
+            <!-- JotForm Embed: JavaScript embed (customizable and seamlessly integrates) -->
+            <!-- The embed script should be placed inside the container below. For iFrame alternative, uncomment the iframe and set height (e.g., 800px). -->
+            <div id="jotform-container" style="max-width:760px; margin:0 auto;">
+                <script src="https://form.jotform.com/jsform/253006906884058"></script>
+                <noscript>
+                    Please complete the form here: <a href="https://form.jotform.com/253006906884058" target="_blank" rel="noopener">https://form.jotform.com/253006906884058</a>
+                </noscript>
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="example@company.com" required>
-                        <div class="error-text">Please enter a valid email address</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
-                        <div class="error-text">Please enter a valid phone number</div>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="company">Company Name *</label>
-                        <input type="text" id="company" name="company" placeholder="Your company name" required>
-                        <div class="error-text">Please enter your company name</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="position">Job Title</label>
-                        <input type="text" id="position" name="position" placeholder="Manager, Developer, etc.">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="industry">Industry</label>
-                        <select id="industry" name="industry">
-                            <option value="">Select Industry</option>
-                            <option value="technology">Technology</option>
-                            <option value="healthcare">Healthcare</option>
-                            <option value="finance">Financial Services</option>
-                            <option value="education">Education</option>
-                            <option value="retail">Retail</option>
-                            <option value="manufacturing">Manufacturing</option>
-                            <option value="logistics">Logistics</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="companySize">Company Size</label>
-                        <select id="companySize" name="companySize">
-                            <option value="">Select Company Size</option>
-                            <option value="1-10">1-10 employees</option>
-                            <option value="11-50">11-50 employees</option>
-                            <option value="51-200">51-200 employees</option>
-                            <option value="201-500">201-500 employees</option>
-                            <option value="500+">500+ employees</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="preferredDate">Preferred Demo Date</label>
-                    <input type="date" id="preferredDate" name="preferredDate">
-                </div>
-
-                <div class="form-group">
-                    <label for="preferredTime">Preferred Time</label>
-                    <select id="preferredTime" name="preferredTime">
-                        <option value="">Select Preferred Time</option>
-                        <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
-                        <option value="afternoon">Afternoon (12:00 PM - 5:00 PM)</option>
-                        <option value="evening">Evening (5:00 PM - 8:00 PM)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="interests">Services of Interest</label>
-                    <select id="interests" name="interests">
-                        <option value="">Select Required Service</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="mobile-development">Mobile App Development</option>
-                        <option value="cloud-solutions">Cloud Solutions</option>
-                        <option value="digital-transformation">Digital Transformation</option>
-                        <option value="consulting">Technical Consulting</option>
-                        <option value="custom-solution">Custom Solution</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Additional Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your needs or any questions you have..."></textarea>
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">I agree to the <a href="#" target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of Service</a> *</label>
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="newsletter" name="newsletter">
-                    <label for="newsletter">I want to receive newsletters and special offers</label>
-                </div>
-
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    Book Free Demo
-                </button>
-            </form>
+            <!--
+            iFrame alternative (uncomment if you prefer an iframe embed):
+            <div id="jotform-container" style="max-width:760px; margin:0 auto;">
+                <iframe id="JotFormIFrame-253006906884058" title="Book Demo" src="https://form.jotform.com/253006906884058" frameborder="0" style="width:100%; height:800px; border:none;"></iframe>
+            </div>
+            -->
         </div>
 
         <!-- Contact Information -->
@@ -202,150 +100,6 @@
 
     <!-- Load Header and Footer -->
     <script src="../assets/js/header-footer.js"></script>
-    <script>
-        // Form handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('demoForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-
-            // Form validation
-            function validateForm() {
-                let isValid = true;
-                const requiredFields = form.querySelectorAll('[required]');
-                
-                // Clear previous errors
-                document.querySelectorAll('.form-group').forEach(group => {
-                    group.classList.remove('error');
-                });
-
-                // Validate required fields
-                requiredFields.forEach(field => {
-                    const formGroup = field.closest('.form-group');
-                    
-                    if (!field.value.trim()) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    } else if (field.type === 'email' && !isValidEmail(field.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    } else if (field.type === 'tel' && !isValidPhone(field.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    }
-                });
-
-                return isValid;
-            }
-
-            // Email validation
-            function isValidEmail(email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
-
-            // Phone validation
-            function isValidPhone(phone) {
-                const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
-                return phoneRegex.test(phone);
-            }
-
-            // Set minimum date to today
-            const dateInput = document.getElementById('preferredDate');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
-
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!validateForm()) {
-                    return;
-                }
-
-                // Show loading
-                submitBtn.disabled = true;
-                loadingSpinner.classList.add('show');
-                successMessage.classList.remove('show');
-                errorMessage.classList.remove('show');
-
-                // Simulate form submission (replace with actual API call)
-                setTimeout(() => {
-                    // Hide loading
-                    loadingSpinner.classList.remove('show');
-                    
-                    // Simulate success (90% success rate for demo)
-                    if (Math.random() > 0.1) {
-                        successMessage.classList.add('show');
-                        form.reset();
-                        
-                        // Scroll to success message
-                        successMessage.scrollIntoView({ behavior: 'smooth' });
-                        
-                        // Log form data (in real app, send to server)
-                        const formData = new FormData(form);
-                        const data = Object.fromEntries(formData);
-                        console.log('Form submitted:', data);
-                        
-                        // In a real application, you would send this data to your server
-                        // Example: fetch('/api/book-demo', { method: 'POST', body: JSON.stringify(data) })
-                        
-                    } else {
-                        errorMessage.classList.add('show');
-                        errorMessage.scrollIntoView({ behavior: 'smooth' });
-                    }
-                    
-                    submitBtn.disabled = false;
-                }, 2000);
-            });
-
-            // Real-time validation
-            const inputs = form.querySelectorAll('input, select, textarea');
-            inputs.forEach(input => {
-                input.addEventListener('blur', function() {
-                    const formGroup = this.closest('.form-group');
-                    
-                    if (this.hasAttribute('required') && !this.value.trim()) {
-                        formGroup.classList.add('error');
-                    } else if (this.type === 'email' && this.value && !isValidEmail(this.value)) {
-                        formGroup.classList.add('error');
-                    } else if (this.type === 'tel' && this.value && !isValidPhone(this.value)) {
-                        formGroup.classList.add('error');
-                    } else {
-                        formGroup.classList.remove('error');
-                    }
-                });
-
-                input.addEventListener('input', function() {
-                    const formGroup = this.closest('.form-group');
-                    if (formGroup.classList.contains('error') && this.value.trim()) {
-                        formGroup.classList.remove('error');
-                    }
-                });
-            });
-
-            // Auto-format phone number
-            const phoneInput = document.getElementById('phone');
-            phoneInput.addEventListener('input', function() {
-                let value = this.value.replace(/\D/g, '');
-                if (value.length >= 10) {
-                    // Format as US phone number: (555) 123-4567
-                    value = value.substring(0, 10);
-                    value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
-                } else if (value.length >= 6) {
-                    // Partial formatting: (555) 123-
-                    value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
-                } else if (value.length >= 3) {
-                    // Partial formatting: (555) 
-                    value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
-                }
-                this.value = value;
-            });
-        });
-    </script>
-    </script>
 </body>
 
 </html>
