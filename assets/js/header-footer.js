@@ -212,16 +212,13 @@ function initAnimations() {
 
     // Observe case study cards
     document.querySelectorAll('.case-study-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
+        // keep visible by default so cards added dynamically show up
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
 
     // Observe process steps
     document.querySelectorAll('.process-step').forEach(step => {
-        step.style.opacity = '0';
-        step.style.transform = 'translateY(30px)';
         step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(step);
     });

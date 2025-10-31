@@ -378,7 +378,7 @@ header.compact .demo-btn a {
     box-shadow: 0 6px 20px rgba(255, 65, 0, 0.4);
 }
 
-/* Animations */
+/* Animations - Dynamic for any number of cards */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -391,11 +391,54 @@ header.compact .demo-btn a {
 }
 
 .case-study-card {
-    animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp 0.6s ease-out backwards;
 }
 
-.case-study-card:nth-child(2) {
-    animation-delay: 0.1s;
+/* Dynamic animation delay for any number of cards */
+.case-studies-grid .case-study-card {
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+/* Compact card view: show only image and title in grid */
+.case-studies-grid .case-study-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0; /* we'll control padding per section */
+}
+
+.case-study-card .card-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: block;
+}
+
+.case-study-card .card-content {
+    padding: 20px 22px 26px 22px;
+}
+
+/* hide detailed parts in grid view; modal will clone and show them */
+.case-studies-grid .case-study-card p,
+.case-studies-grid .case-study-card .case-study-stats,
+.case-studies-grid .case-study-card .technologies {
+    display: none !important;
+}
+
+.case-studies-grid .case-study-card .industry {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.case-studies-grid .case-study-card h3 {
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+
+@media (max-width: 480px) {
+    .case-study-card .card-thumb { height: 140px; }
 }
 
 .case-study-card:nth-child(3) {
