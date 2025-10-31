@@ -2,9 +2,9 @@
 footer {
     background: linear-gradient(135deg, #000000, #1a1a1a);
     color: #fff;
-    padding: 24px 0;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 65, 0, 0.2);
+    padding: 0px 0;
+    margin-top: 0px;
+    border-top: 0px solid rgba(255, 65, 0, 0.2);
     position: relative;
     z-index: 1000;
     width: 100%;
@@ -14,20 +14,20 @@ footer {
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
+    padding: 0 0px;
+    text-align: left;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .footer-section h3 {
     color: #ff4100;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     font-size: 1.05em;
 }
 
@@ -38,67 +38,30 @@ footer {
     line-height: 1.4;
     transition: color 0.3s ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 6px;
+    align-items: right;
+    justify-content: left;
+    margin-bottom: 0px;
 }
 
 .footer-section a:hover {
     color: #ff4100;
 }
 
-/* Contact Info Icons (emoji fallbacks) */
-.icon-phone::before {
-    content: "📞";
-    margin-right: 8px;
-}
 
-.icon-email::before {
-    content: "✉️";
-    margin-right: 8px;
-}
 
-.icon-website::before {
-    content: "🌐";
-    margin-right: 8px;
-}
-
-.icon-location::before {
-    content: "📍";
-    margin-right: 8px;
-}
-/* Use small image icons from media/images/icon but keep original compact sizing */
-.footer-section .icon-phone,
-.footer-section .icon-email,
-.footer-section .icon-website,
-.footer-section .icon-location {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    vertical-align: middle;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-.footer-section .icon-phone { background-image: url("../../media/images/icon/phone.png"); }
-.footer-section .icon-email { background-image: url("../../media/images/icon/email.png"); }
-.footer-section .icon-website { background-image: url("../../media/images/icon/website.png"); }
-.footer-section .icon-location { background-image: url("../../media/images/icon/location.png"); }
 
 /* Social Media Icons */
 .social-links {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    align-items: center;
+    align-items: left;
 }
 
 .social-links a {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     padding: 8px 12px;
     min-height: 36px;
     background: rgba(255, 65, 0, 0.08);
@@ -132,20 +95,7 @@ footer {
     border-width: 1px;
 }
 
-.social-links /* emojis removed; using image backgrounds below */
-.social-links .icon-facebook,
-.social-links .icon-twitter,
-.social-links .icon-linkedin,
-.social-links .icon-instagram {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    margin-right: 8px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    vertical-align: middle;
-}
+
 
 /* make icon elements non-interactive so clicks target the parent anchor reliably */
 .social-links i {
@@ -153,19 +103,9 @@ footer {
     display: inline-block;
 }
 
-.social-links .icon-facebook { background-image: url("../../media/images/icon/facebook_icon.png"); }
-.social-links .icon-twitter { background-image: url("../../media/images/icon/twitter_icon.png"); }
-.social-links .icon-linkedin { background-image: url("../../media/images/icon/linkedin_icon.png"); }
-.social-links .icon-instagram { background-image: url("../../media/images/icon/instagram_icon.png"); }
 
-/* Ensure any ::before content is cleared (defensive against caches or overrides) */
-.icon-facebook::before,
-.icon-twitter::before,
-.icon-linkedin::before,
-.icon-instagram::before {
-    content: none !important;
-    margin-right: 0 !important;
-}
+
+
 
 /* Booking Button */
 .booking-btn {
@@ -174,16 +114,17 @@ footer {
     justify-content: center;
     background: linear-gradient(135deg, #ff4100, #ff6b35);
     color: white !important;
-    padding: 12px 20px;
-    min-height: 48px;
-    border-radius: 25px;
+    padding: 10px 22px;
+    min-height: 36px;
+    border-radius: 22px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 65, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(255, 65, 0, 0.35);
+    margin-top: 12px; /* move the button slightly down */
 }
 
 .booking-btn:hover {
@@ -217,13 +158,13 @@ footer {
     }
     
     footer {
-        padding: 34px 0;
+        padding: 0px 0;
     }
     
     .social-links {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: left;
         gap: 8px;
     }
     .social-links /* social icon pseudo-elements removed; using image backgrounds below */
@@ -231,22 +172,22 @@ footer {
     .social-links a {
         width: calc(50% - 16px);
         max-width: 240px;
-        padding: 10px 14px;
+        padding: 0px 0px;
         border-radius: 12px;
-        margin: 6px 0;
+        margin: 0px 0;
         box-sizing: border-box;
     }
 
     .footer-section p, .footer-section a {
         justify-content: flex-start;
-        padding-left: 12px;
+        padding-left: 0px;
     }
 
     .booking-btn {
         display: block;
         width: calc(100% - 40px);
-        margin: 12px auto 0;
-        text-align: center;
-        padding: 12px 20px;
+        margin: 12px auto 0; /* add top margin for spacing on small screens */
+        text-align: left;
+        padding: 10px 20px;
     }
 }

@@ -54,26 +54,29 @@ body {
 
 /* Slideshow */
 .slideshow {
-  width: 800px;
-  height: 450px;
+  /* Make slideshow full-width (up to max-width) and keep a 16:9 aspect ratio */
+  width: 100%;
+  max-width: 1200px; /* change as needed for wider screens */
   margin: 30px auto;
   position: relative;
-  box-shadow: 0 0 20px rgba(255, 65, 0, 0.6);
+  box-shadow: 0 0 30px rgba(255, 65, 0, 0.6);
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid #ff4100;
+  /* maintain aspect ratio without fixed height */
+  padding-top: 56.25%; /* 16:9 ratio (450/800 = 0.5625) */
 }
 
 .slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 13px;
-  position: absolute;
+  border-radius: 0; /* parent has the radius */
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   object-fit: cover;
-  top: 0;
-  left: 0;
 }
 
 .slideshow img.active {
@@ -83,7 +86,7 @@ body {
 /* Header & Footer Placeholder */
 #header, #footer {
   background: #111;
-  padding: 15px;
+  padding: 0;
   text-align: center;
   color: #aaa;
 }
@@ -92,8 +95,9 @@ body {
 @media (max-width: 1024px) {
   .slideshow {
     width: 100%;
-    max-width: 700px;
-    height: 394px;
+    max-width: 1000px;
+    /* keep aspect ratio via padding-top */
+    padding-top: 56.25%;
   }
   
   .container {
@@ -111,8 +115,8 @@ body {
   .slideshow {
     margin: 20px auto;
     width: 90%;
-    max-width: 600px;
-    height: 338px;
+    max-width: 900px;
+    padding-top: 56.25%;
   }
 
   .container {
@@ -132,7 +136,7 @@ body {
   
   .slideshow {
     width: 98%;
-    height: 200px;
+    padding-top: 75%; /* make it a bit taller on very small screens */
   }
   
   .container h1 {

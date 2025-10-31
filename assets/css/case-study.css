@@ -531,3 +531,136 @@ header.compact .demo-btn a {
         min-height: 120px;
     }
 }
+
+/* Modal overlay & modal styles for case study popup */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 30px;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal {
+    background: #0f0f10;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 920px;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,65,0,0.12);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+.modal-slider {
+    position: relative;
+    background: #000;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    overflow: hidden;
+}
+
+.modal-slider .slides {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(255,65,0,0.06), rgba(0,0,0,0.2));
+}
+
+.modal-slider img.slide {
+    max-width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-slider .slide.placeholder {
+    color: #fff;
+    font-size: 1.6em;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide-prev, .slide-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #fff;
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.slide-prev { left: 12px; }
+.slide-next { right: 12px; }
+
+.modal-body {
+    padding: 26px 30px 40px 30px;
+    color: #eaeaea;
+}
+
+.modal-title {
+    font-size: 1.8em;
+    color: #ff4100;
+    margin: 0 0 12px 0;
+}
+
+.modal-summary {
+    margin: 0 0 18px 0;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.modal-stats {
+    margin: 18px 0;
+}
+
+.modal-stats .case-study-stats {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.modal-recommendations {
+    margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+    .modal-slider .slides { height: 220px; }
+    .modal-slider img.slide { max-height: 220px; }
+    .modal { max-width: 94%; }
+}
+
+@media (max-width: 420px) {
+    .slide-prev, .slide-next { width: 36px; height: 36px; font-size: 22px; }
+    .modal-body { padding: 18px; }
+    .modal-slider .slides { height: 180px; }
+}

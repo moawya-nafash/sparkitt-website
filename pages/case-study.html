@@ -302,6 +302,28 @@
     <!-- Footer -->
     <div id="footer"></div>
 
+    <!-- Case Study Modal (hidden by default) -->
+    <div id="caseModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="modal-slider">
+                <button class="slide-prev" aria-label="Previous slide">‹</button>
+                <div class="slides" aria-live="polite"></div>
+                <button class="slide-next" aria-label="Next slide">›</button>
+            </div>
+
+            <div class="modal-body">
+                <h2 class="modal-title"></h2>
+                <p class="modal-summary"></p>
+
+                <div class="modal-stats"></div>
+
+                <div class="modal-recommendations"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Load Header and Footer -->
     <script src="../assets/js/header-footer.js"></script>
 
@@ -335,6 +357,120 @@
             step.style.transform = 'translateY(30px)';
             step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(step);
+        });
+
+        // --- Modal popup for case-study-card ---
+        const modalOverlay = document.getElementById('caseModal');
+        const modal = modalOverlay && modalOverlay.querySelector('.modal');
+        const slidesContainer = modalOverlay && modalOverlay.querySelector('.slides');
+        const titleEl = modalOverlay && modalOverlay.querySelector('.modal-title');
+        const summaryEl = modalOverlay && modalOverlay.querySelector('.modal-summary');
+        const statsEl = modalOverlay && modalOverlay.querySelector('.modal-stats');
+        const recsEl = modalOverlay && modalOverlay.querySelector('.modal-recommendations');
+        const closeBtn = modalOverlay && modalOverlay.querySelector('.modal-close');
+        const prevBtn = modalOverlay && modalOverlay.querySelector('.slide-prev');
+        const nextBtn = modalOverlay && modalOverlay.querySelector('.slide-next');
+
+        let currentSlide = 0;
+
+        function openModalFromCard(card) {
+            if (!modalOverlay) return;
+            // Populate title & summary
+            const title = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+            const summary = card.querySelector('p') ? card.querySelector('p').innerText : '';
+            titleEl.textContent = title;
+            summaryEl.textContent = summary;
+
+            // Clone stats
+            const stats = card.querySelector('.case-study-stats');
+            statsEl.innerHTML = '';
+            if (stats) {
+                statsEl.appendChild(stats.cloneNode(true));
+            }
+
+            // Clone recommendations / technologies
+            const recs = card.querySelector('.technologies');
+            recsEl.innerHTML = '';
+            if (recs) {
+                const heading = document.createElement('h4');
+                heading.textContent = 'Recommendations / Technologies';
+                recsEl.appendChild(heading);
+                recsEl.appendChild(recs.cloneNode(true));
+            }
+
+            // Build slides: look for data-images attribute or <img> inside card
+            slidesContainer.innerHTML = '';
+            const dataImages = card.getAttribute('data-images');
+            let images = [];
+            if (dataImages) images = dataImages.split(',').map(s => s.trim()).filter(Boolean);
+            else {
+                card.querySelectorAll('img').forEach(img => images.push(img.src));
+            }
+
+            if (images.length === 0) {
+                // create placeholder slide
+                const placeholder = document.createElement('div');
+                placeholder.className = 'slide placeholder';
+                placeholder.textContent = title;
+                slidesContainer.appendChild(placeholder);
+            } else {
+                images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.className = 'slide';
+                    img.src = src;
+                    img.alt = title + ' image';
+                    slidesContainer.appendChild(img);
+                });
+            }
+
+            currentSlide = 0;
+            updateSlides();
+
+            modalOverlay.classList.add('open');
+            modalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modalOverlay) return;
+            modalOverlay.classList.remove('open');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function updateSlides() {
+            const slides = slidesContainer.querySelectorAll('.slide');
+            slides.forEach((s, i) => {
+                s.style.display = (i === currentSlide) ? 'block' : 'none';
+            });
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); const slides = slidesContainer.querySelectorAll('.slide'); if (slides.length) { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlides(); }});
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); const slides = slidesContainer.querySelectorAll('.slide'); if (slides.length) { currentSlide = (currentSlide + 1) % slides.length; updateSlides(); }});
+
+        // Close when clicking outside modal content
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Open modal when clicking a card
+        document.querySelectorAll('.case-study-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (e) => {
+                // Prevent clicks on links inside cards from opening modal
+                const tag = e.target.tagName.toLowerCase();
+                if (tag === 'a' || e.target.closest('a')) return;
+                openModalFromCard(card);
+            });
         });
     </script>
 </body>
