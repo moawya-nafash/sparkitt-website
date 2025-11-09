@@ -12,7 +12,7 @@ function loadHeader() {
     // Determine correct paths based on current location
     const homePath = isInPagesFolder ? '../index.html' : 'index.html';
     // use logo.png (no spaces in filename) for consistent path across pages
-    const logoPath = isInPagesFolder ? '../media/images/logo.png' : 'media/images/logo.png';
+    const logoPath = isInPagesFolder ? "/sparkitt-website/media/images/logo.png" : "/sparkitt-website/media/images/logo.png";
     
     const headerHTML = `
         <header>
