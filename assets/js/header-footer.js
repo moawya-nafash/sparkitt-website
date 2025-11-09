@@ -193,6 +193,36 @@ if (document.readyState === 'loading') {
     initAnimations();
 }
 
+// Ensure the footer.js helper is loaded on every page so mobile footer behavior works
+function loadFooterHelperScript() {
+    try {
+        const currentPath = window.location.pathname;
+        const isInPagesFolder = currentPath.includes('/pages/');
+        const scriptSrc = isInPagesFolder ? '../assets/js/footer.js' : 'assets/js/footer.js';
+
+        // Do not load twice
+        if (document.querySelector(`script[src="${scriptSrc}"]`)) return;
+
+        const s = document.createElement('script');
+        s.src = scriptSrc;
+        s.defer = true;
+        document.body.appendChild(s);
+    } catch (e) {
+        // silently fail — non-critical
+        console.error('Failed to load footer helper script', e);
+    }
+}
+
+// Call loader after footer is injected. If DOM already ready, call immediately.
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    // small timeout to allow loadFooter to populate the DOM first
+    setTimeout(loadFooterHelperScript, 50);
+} else {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(loadFooterHelperScript, 50);
+    });
+}
+
 // Animation effects for page elements
 function initAnimations() {
     // Add intersection observer for animations
