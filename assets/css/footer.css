@@ -1,14 +1,21 @@
 /* Footer Styles */
-footer {
+/* Footer Styles */
+#footer {
+    position: relative;
+    z-index: 1001;
     background: linear-gradient(135deg, #000000, #1a1a1a);
     color: #fff;
-    padding: 0px 0;
-    margin-top: 0px;
-    border-top: 0px solid rgba(255, 65, 0, 0.2);
-    position: relative;
-    z-index: 1000;
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 65, 0, 0.2);
     width: 100%;
     clear: both;
+}
+
+footer {
+    background: transparent;
+    color: #fff;
+    width: 100%;
 }
 
 .footer-container {
@@ -67,10 +74,13 @@ footer {
     background: rgba(255, 65, 0, 0.08);
     border-radius: 14px;
     transition: all 0.18s ease;
-    border: 1px solid rgba(255, 65, 0, 0.12); /* unified 1px border */
+    border: 1px solid rgba(255, 65, 0, 0.12);
+    /* unified 1px border */
     position: relative;
-    z-index: 2100; /* ensure anchors sit above any nearby overlays */
-    pointer-events: auto; /* ensure anchors receive clicks */
+    z-index: 2100;
+    /* ensure anchors sit above any nearby overlays */
+    pointer-events: auto;
+    /* ensure anchors receive clicks */
 }
 
 /* Make social link pills consistent width and fully clickable */
@@ -124,7 +134,8 @@ footer {
     border: none;
     cursor: pointer;
     box-shadow: 0 8px 30px rgba(255, 65, 0, 0.35);
-    margin-top: 12px; /* move the button slightly down */
+    margin-top: 12px;
+    /* move the button slightly down */
 }
 
 .booking-btn:hover {
@@ -156,19 +167,21 @@ footer {
         grid-template-columns: 1fr;
         gap: 28px;
     }
-    
+
     footer {
         padding: 0px 0;
     }
-    
+
     .social-links {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: left;
         gap: 8px;
     }
-    .social-links /* social icon pseudo-elements removed; using image backgrounds below */
-    
+
+    .social-links
+    /* social icon pseudo-elements removed; using image backgrounds below */
+
     .social-links a {
         width: calc(50% - 16px);
         max-width: 240px;
@@ -178,7 +191,8 @@ footer {
         box-sizing: border-box;
     }
 
-    .footer-section p, .footer-section a {
+    .footer-section p,
+    .footer-section a {
         justify-content: flex-start;
         padding-left: 0px;
     }
@@ -186,7 +200,8 @@ footer {
     .booking-btn {
         display: block;
         width: calc(100% - 40px);
-        margin: 12px auto 0; /* add top margin for spacing on small screens */
+        margin: 12px auto 0;
+        /* add top margin for spacing on small screens */
         text-align: left;
         padding: 10px 20px;
     }

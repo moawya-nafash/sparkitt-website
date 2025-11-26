@@ -140,7 +140,7 @@ header.compact .demo-btn a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 
 .about-header {
@@ -225,11 +225,11 @@ header.compact .demo-btn a {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .about-header h1 {
         font-size: 2.5em;
     }
-    
+
     .about-text h2 {
         font-size: 1.8em;
     }
@@ -268,7 +268,7 @@ header.compact .demo-btn a {
     body {
         padding-top: 100px !important;
     }
-    
+
     .header-container {
         min-height: 110px;
     }
@@ -314,31 +314,31 @@ header.compact .demo-btn a {
     .container {
         padding: 12px 8px;
     }
-    
+
     .about-header h1 {
         font-size: 1.6em;
     }
-    
+
     .about-text h2 {
         font-size: 1.2em;
     }
-    
+
     .feature-card {
         padding: 20px 12px;
     }
-    
+
     .nav-links {
         gap: 8px;
     }
-    
+
     .nav-links a {
         font-size: 12px;
     }
-    
+
     body {
         padding-top: 110px !important;
     }
-    
+
     .header-container {
         min-height: 100px;
     }

@@ -103,3 +103,32 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .appointment-section {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .time-grid {
+        grid-template-columns: 1fr;
+        /* Single column for time slots */
+    }
+
+    .flatpickr-calendar {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto;
+    }
+
+    .time-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
