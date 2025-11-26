@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/about.css">
-    <link rel="stylesheet" href="../assets/css/form.css">
-    <link rel="stylesheet" href="../assets/css/jotform-custom.css">
+    <link rel="stylesheet" href="../assets/css/booking-form.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
 
 </head>
@@ -24,68 +25,53 @@
     <!-- Include header -->
     <div id="header"></div>
 
-    <!-- Page Content -->
     <div class="container">
-        <div class="about-header">
-            <h1>Book Your Free Demo</h1>
-            <p>Schedule a personalized demonstration of our solutions</p>
-        </div>
-
-        <!-- Success Message -->
-        <div class="success-message" id="successMessage">
-            <h3>✅ Request Submitted Successfully!</h3>
-            <p>Thank you! Our team will contact you within 24 hours to confirm your demo appointment.</p>
-        </div>
-
-        <!-- Error Message -->
-        <div class="error-message" id="errorMessage">
-            <h3>❌ Submission Error</h3>
-            <p>Please try again or contact us directly.</p>
-        </div>
-
-        <!-- Loading Spinner -->
-        <div class="loading" id="loadingSpinner">
-            <div class="spinner"></div>
-            <p>Sending your request...</p>
-        </div>
-
-        <!-- Demo Booking Form (embedded via JotForm) -->
         <div class="form-container">
-            <div class="form-title">
-                <h2>Book Your Free Demo</h2>
-                <p>Fill out the form below and we'll get back to you soon</p>
-            </div>
+            <h2>Book Your Free Demo</h2>
+            <form id="bookingForm">
 
-            <!-- JotForm Embed: JavaScript embed (customizable and seamlessly integrates) -->
-            <!-- The embed script should be placed inside the container below. For iFrame alternative, uncomment the iframe and set height (e.g., 800px). -->
-            <div id="jotform-container" style="max-width:760px; margin:0 auto;">
-                <script src="https://form.jotform.com/jsform/253006906884058"></script>
-                <noscript>
-                    Please complete the form here: <a href="https://form.jotform.com/253006906884058" target="_blank" rel="noopener">https://form.jotform.com/253006906884058</a>
-                </noscript>
-            </div>
+                <div class="form-field"><label>Name</label><input type="text" name="name" required></div>
+                <div class="form-field"><label>Email</label><input type="email" name="email" required></div>
+                <div class="form-field"><label>Phone</label><input type="tel" name="phone"></div>
+                <div class="form-field"><label>Address</label><input type="text" name="address"></div>
 
-            <!--
-            iFrame alternative (uncomment if you prefer an iframe embed):
-            <div id="jotform-container" style="max-width:760px; margin:0 auto;">
-                <iframe id="JotFormIFrame-253006906884058" title="Book Demo" src="https://form.jotform.com/253006906884058" frameborder="0" style="width:100%; height:800px; border:none;"></iframe>
-            </div>
-            -->
+                <div class="form-field">
+                    <label id="statusLabel" style="color: #ff4500;">Date & Time (Loading...)</label>
+                    <div class="appointment-section">
+                        <div class="calendar-box"><input type="text" id="inline_cal" style="display:none"></div>
+                        <div class="time-box">
+                            <div id="dateDisplay" style="text-align:center; margin-bottom:15px; font-size:1.1em;">Select
+                                Date</div>
+                            <div class="time-grid">
+                                <button type="button" class="time-btn" data-time="10:00 AM">10:00 AM</button>
+                                <button type="button" class="time-btn" data-time="11:00 AM">11:00 AM</button>
+                                <button type="button" class="time-btn" data-time="12:00 PM">12:00 PM</button>
+                                <button type="button" class="time-btn" data-time="01:00 PM">01:00 PM</button>
+                                <button type="button" class="time-btn" data-time="02:00 PM">02:00 PM</button>
+                                <button type="button" class="time-btn" data-time="03:00 PM">03:00 PM</button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="meetingDate" id="hDate">
+                    <input type="hidden" name="meetingTime" id="hTime">
+                </div>
+
+                <div class="form-field"><label>Notes</label><textarea name="notes" rows="3"></textarea></div>
+                <button type="submit" id="submitBtn">Submit Booking</button>
+                <div id="msg" style="text-align:center; margin-top:15px; padding:10px; border-radius:5px;"></div>
+            </form>
         </div>
-    
-        <!-- Contact Information -->
-        <div class="features" style="margin-top: 60px;">
-            
-        </div>
-    </div> 
+    </div>
 
-          
+
     <!-- Footer -->
     <div id="footer"></div>
 
     <!-- Load Header and Footer -->
     <script src="../assets/js/header-footer.js"></script>
     <script src="../assets/js/responsive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../assets/js/booking-form.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 // Small responsive helpers: detect touch and expose matchMedia helper
-(function(){
+(function () {
   function isTouchDevice() {
     return ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
   }
@@ -10,15 +10,15 @@
   }
 
   // simple helper that can be used by other scripts
-  window.isMobileWidth = function() {
+  window.isMobileWidth = function () {
     return window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
   };
 
   // if there are nav dropdowns that rely on :hover, enable click-to-open for touch
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('DOMContentLoaded', function () {
     if (!isTouchDevice()) return;
     document.querySelectorAll('.nav-links .has-submenu').forEach(item => {
-      item.addEventListener('click', function(e){
+      item.addEventListener('click', function (e) {
         // toggle open class instead of relying on hover
         this.classList.toggle('submenu-open');
       });
@@ -43,7 +43,7 @@
         if (nav) {
           // Move nav outside header to body for popup style
           document.body.appendChild(nav);
-          
+
           // Add close button inside nav
           const closeBtn = document.createElement('button');
           closeBtn.className = 'nav-close';
@@ -65,7 +65,7 @@
         }
 
         // Toggle nav on burger click
-        burger.addEventListener('click', function(e) {
+        burger.addEventListener('click', function (e) {
           e.stopPropagation();
           const isOpen = nav?.classList.contains('open');
           if (isOpen) {
@@ -80,15 +80,23 @@
         document.querySelector('.nav-close')?.addEventListener('click', closeNav);
 
         // Close on ESC key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') closeNav();
         });
 
-        // Center logo and booking button
-        const logo = document.querySelector('.logo');
+        // Move demo button into nav menu for mobile
         const demoBtn = document.querySelector('.demo-btn');
-        if (logo) logo.classList.add('center-on-mobile');
-        if (demoBtn) demoBtn.classList.add('center-on-mobile');
+        if (demoBtn && nav) {
+          nav.appendChild(demoBtn);
+          demoBtn.classList.add('mobile-nav-btn');
+        }
+
+        // Ensure logo is left-aligned (standard UI/UX)
+        const logo = document.querySelector('.logo');
+        if (logo) {
+          logo.style.left = '20px';
+          logo.style.transform = 'none';
+        }
       }
     }
   });

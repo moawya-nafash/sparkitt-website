@@ -1,0 +1,105 @@
+/* ------------------- STYLING (CSS) ------------------- */
+/* Scoped to form-container to avoid affecting global styles */
+.form-container {
+    max-width: 850px;
+    margin: 20px auto;
+    background: #000;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #ff4500;
+    margin-top: 0;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    background: #111;
+    color: #fff;
+    border: 2px solid #333;
+    padding: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Appointment Box */
+.appointment-section {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Buttons */
+.time-btn {
+    background: transparent;
+    border: 1px solid #ff4500;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.time-btn.active {
+    background: #ff4500;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Disabled/Booked Slot */
+.time-btn.disabled {
+    background-color: #222 !important;
+    border-color: #444 !important;
+    color: #555 !important;
+    text-decoration: line-through;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+#submitBtn {
+    width: 100%;
+    background: linear-gradient(45deg, #ff4100, #ff6b35);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#msg {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
