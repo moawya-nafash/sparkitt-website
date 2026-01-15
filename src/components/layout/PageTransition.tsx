@@ -2,13 +2,21 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 // Using a template instead of layout allows animation on route change
 export default function PageTransition({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
+    const [isClient, setIsClient] = useState(false);
 
-    // Basic Opacity & Blur transition
-    // "Wait" mode ensures the old page leaves before the new one enters
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    // On static export (GitHub Pages), disable animation to prevent blank page
+    if (!isClient) {
+        return <div className="w-full">{children}</div>;
+    }
 
     return (
         <AnimatePresence mode="wait">
