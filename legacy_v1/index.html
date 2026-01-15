@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>sparkitt</title>
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="author" content="moawya nafash">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="refresh" content="900">
+
+    <!-- ربط CSS الهيدر -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /* فيديو الخلفية يغطي الشاشة كاملة */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* يكون تحت كل العناصر */
+        }
+
+        /* المحتوى فوق الفيديو */
+        .content {
+            position: relative;
+            z-index: 1;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            top: 40%;
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            padding-top: 60px;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .content {
+                font-size: 1.5em;
+                top: 35%;
+                padding-top: 80px;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                font-size: 1.2em;
+                top: 30%;
+                padding-top: 100px;
+            }
+
+            body {
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .content {
+                font-size: 1em;
+                top: 25%;
+                padding-top: 120px;
+            }
+
+            body {
+                padding-top: 140px;
+            }
+        }
+
+        /* تعديل الهيدر ليظهر فوق الفيديو */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95));
+            /* دعم WebKit لـ Safari */
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 65, 0, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* التأكد من ظهور الـ footer */
+        #footer {
+            position: relative;
+            z-index: 1001;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 65, 0, 0.2);
+            width: 100%;
+            clear: both;
+        }
+
+        /* Header fade out effect when scrolling */
+        header.scrolled {
+            transform: translateY(-100%);
+            opacity: 0;
+            /* دعم WebKit لـ Safari */
+            -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+        }
+
+        /* Header compact mode when scrolling down */
+        header.compact {
+            transform: translateY(0);
+            opacity: 1;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(20, 20, 20, 0.98));
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header.compact .header-container {
+            padding: 5px 40px;
+            height: 50px;
+        }
+
+        header.compact .logo img {
+            height: 48px;
+        }
+
+        header.compact .nav-links a {
+            font-size: 14px;
+        }
+
+        header.compact .demo-btn a {
+            padding: 6px 16px;
+            font-size: 13px;
+        }
+
+        /* Partner logo under OUR PARTNER */
+        /* add extra vertical spacing between consecutive headings inside .content */
+        .content h1+h1 {
+            margin-top: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .content h1+h1 {
+                margin-top: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content h1+h1 {
+                margin-top: 18px;
+            }
+        }
+
+        .partner-logo {
+            display: block;
+            margin: 12px auto 0;
+            max-width: 280px;
+            width: 40%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .partner-logo {
+                width: 55%;
+                max-width: 240px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partner-logo {
+                width: 65%;
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body class="has-bg-video" style="background-color: #000;">
+    <!-- فيديو الخلفية -->
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" id="bg-video">
+        <source src="media/videos/background.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <script>
+        // Force video playback on mobile devices
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('bg-video');
+            if (video) {
+                video.play().catch(function (error) {
+                    console.log('Video autoplay failed:', error);
+                    // Try playing on user interaction
+                    document.addEventListener('touchstart', function () {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
+
+    <!-- تضمين الهيدر -->
+    <div id="header"></div>
+
+    <!-- محتوى الصفحة -->
+    <div class="content">
+        <h1><strong>
+                <p>Ready to understand your customers</p>
+                <p> with 95%+ accuracy ?</p>
+            </strong></h1>
+
+        <h1>
+            <p>OUR PARTNER</p>
+        </h1>
+
+        <a href="https://www.instagram.com/limebuzz.marketing/?hl=en" target="_blank" rel="noopener">
+            <img class="partner-logo" src="media/images/LimLAB.webp" alt="OUR PARTNER - LimLAB" loading="lazy" />
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Load Header and Footer -->
+    <script src="assets/js/header-footer.js"></script>
+    <script src="assets/js/responsive.js"></script>
+</body>
+
+</html>
+<!--خط الرجعة-->
