@@ -14,8 +14,10 @@ export default function Hero() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
             >
+                <source src="/media/videos/background.webm" type="video/webm" />
                 <source src="/media/videos/background.mp4" type="video/mp4" />
                 {/* Fallback image if video fails or loads slowly */}
                 <Image
