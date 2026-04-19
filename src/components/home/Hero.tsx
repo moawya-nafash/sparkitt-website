@@ -53,12 +53,6 @@ export default function Hero() {
                         >
                             Start Your Journey
                         </Link>
-                        <Link
-                            href="/case-study"
-                            className="px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-bold text-lg transition-all hover:bg-white/5 hover:border-primary/50"
-                        >
-                            View Case Studies
-                        </Link>
                     </div>
 
 

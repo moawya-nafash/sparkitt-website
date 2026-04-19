@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sparkitt.info"),
   title: {
     default: "Sparkitt - Neuroscience Driven Marketing Technology",
     template: "%s | Sparkitt"
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sparkitt.com", // Placeholder URL
+    url: "https://sparkitt.info",
     title: "Sparkitt - The Future of Customer Understanding",
     description: "Combine neuroscience and technology to predict customer behavior with 95% accuracy.",
     siteName: "Sparkitt",
@@ -47,11 +48,6 @@ export const metadata: Metadata = {
     shortcut: "/media/images/logo.webp",
     apple: "/media/images/logo.webp",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
@@ -63,6 +59,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 const jsonLd = {
@@ -85,7 +87,7 @@ const jsonLd = {
   "publisher": {
     "@type": "Organization",
     "name": "Sparkitt",
-    "logo": "https://sparkitt.com/media/images/logo.webp"
+    "logo": "https://sparkitt.info/media/images/logo.webp"
   }
 };
 
@@ -96,7 +98,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={cn(inter.variable, "font-sans antialiased bg-black text-white")}>
+      <body className={cn(inter.variable, "font-sans antialiased bg-black text-white overflow-x-hidden w-full max-w-[100vw]")}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

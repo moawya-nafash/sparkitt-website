@@ -38,7 +38,7 @@ export default function Gallery() {
 
     return (
         <>
-            <div className="grid grid-cols-3 gap-1 px-1">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 px-1">
                 {IMAGES.map((image, index) => (
                     <motion.div
                         key={image.id}
@@ -53,6 +53,7 @@ export default function Gallery() {
                             src={image.src}
                             alt={image.alt}
                             fill
+                            priority={index < 4}
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
                             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                         />

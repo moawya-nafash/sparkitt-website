@@ -24,7 +24,6 @@ export default function Header() {
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about" },
         { name: "Services", href: "/services" },
-        { name: "Case Study", href: "/case-study" },
         { name: "Company Profile", href: "/profile" },
     ];
 
@@ -96,7 +95,7 @@ export default function Header() {
                         transition={{ type: "spring", damping: 20 }}
                         className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl lg:hidden flex flex-col justify-center items-center"
                     >
-                        <nav className="flex flex-col items-center gap-8 w-full px-8">
+                        <nav className="flex flex-col items-center gap-8 w-full px-4">
                             {navLinks.map((link, index) => (
                                 <motion.div
                                     key={link.name}

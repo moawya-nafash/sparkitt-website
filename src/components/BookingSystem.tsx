@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Loader2, Calendar as CalendarIcon, Clock, CheckCircle2, AlertCircle, ChevronLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyxHxNJfPfoFxFhB5dXJ_Zroqwu1UDiXOH7UNoe2mL5J2QgC4PoLdgz9UmnI3vgKOV_/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzDN5KhM-Jn1a6WBudClqjtrAhjXkO8gO_s6p3UIok9YUoOW7jCge2NO6m6a9T4iLME/exec";
 
 const TIME_SLOTS = [
     "10:00", "10:45", "11:30", "12:15", "13:00", "13:45",
@@ -198,7 +198,7 @@ export default function BookingSystem() {
                                             setSelectedDate(e.target.value);
                                             setSelectedTime("");
                                         }}
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white text-base outline-none focus:border-primary/50 transition-all cursor-pointer [&::-webkit-calendar-picker-indicator]:invert hover:bg-white/10"
+                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white text-base outline-none focus:border-primary/50 transition-all cursor-pointer [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:opacity-50 [&::-webkit-calendar-picker-indicator]:hover:opacity-100 hover:bg-white/10"
                                     />
                                     <p className="text-xs text-gray-500 pl-1">
                                         Timezone: Asia/Amman
