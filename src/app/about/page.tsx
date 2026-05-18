@@ -1,114 +1,74 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Lightbulb, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Canvas } from "@react-three/fiber";
+import { Float, MeshDistortMaterial, Sphere } from "@react-three/drei";
 
-export default function About() {
-    const fadeIn = {
-        initial: { opacity: 0, y: 30 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.8 },
-    };
-
-    const stagger = {
-        animate: {
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    };
-
+function EmotionOrb() {
     return (
-        <div className="pt-32 pb-20 container mx-auto px-4 min-h-screen">
-            {/* Header Section */}
-            <motion.div
-                initial="initial"
-                animate="animate"
-                variants={fadeIn}
-                className="text-center mb-20 space-y-6"
-            >
-                <h1 className="text-4xl md:text-5xl font-bold text-primary">About Us</h1>
-                <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
-                    We combine neuroscience and technology to create smarter marketing and
-                    strategic consulting solutions that truly connect with people.
-                </p>
-            </motion.div>
+        <Canvas camera={{ position: [0, 0, 5] }}>
+            <ambientLight intensity={1} />
+            <directionalLight position={[2, 2, 2]} intensity={2} color="#ff4100" />
+            <directionalLight position={[-2, -2, -2]} intensity={2} color="#00F0FF" />
+            <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+                <Sphere args={[1.5, 64, 64]}>
+                    <MeshDistortMaterial 
+                        color="#0A0A0A" 
+                        distort={0.4} 
+                        speed={3} 
+                        roughness={0.2} 
+                        metalness={0.8}
+                    />
+                </Sphere>
+            </Float>
+        </Canvas>
+    );
+}
 
-            {/* Vision & Mission Grid */}
-            <motion.div
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                variants={stagger}
-                className="grid md:grid-cols-2 gap-12 mb-24 items-center"
-            >
-                <motion.div
-                    variants={fadeIn}
-                    className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors duration-300"
-                >
-                    <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                        Shaping the Future of Business with Smart Solutions. We envision a
-                        world where technology acts as a bridge between human needs and
-                        business goals.
-                    </p>
-                </motion.div>
-
-                <motion.div
-                    variants={fadeIn}
-                    className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors duration-300"
-                >
-                    <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                        Delivering reliable and innovative technological solutions that
-                        empower our clients to achieve their business goals efficiently and
-                        effectively.
-                    </p>
-                </motion.div>
-            </motion.div>
-
-            {/* Core Values / Features */}
-            <motion.div
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                variants={stagger}
-                className="grid md:grid-cols-3 gap-8"
-            >
-                {[
-                    {
-                        title: "Expertise",
-                        desc: "A team of specialized experts in various technological fields with years of practical experience.",
-                        icon: Users,
-                    },
-                    {
-                        title: "Innovation",
-                        desc: "We use the latest technologies and innovative methods to provide exceptional and advanced solutions.",
-                        icon: Lightbulb,
-                    },
-                    {
-                        title: "Quality",
-                        desc: "We adhere to the highest quality standards in all our projects and services that we provide to clients.",
-                        icon: ShieldCheck,
-                    },
-                ].map((feature, i) => (
-                    <motion.div
-                        key={i}
-                        variants={fadeIn}
-                        className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary transition-all duration-300 transform hover:-translate-y-2"
+export default function AboutPage() {
+    return (
+        <div className="pt-32 pb-20 min-h-screen">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
                     >
-                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                            <feature.icon className="text-primary w-8 h-8" />
+                        <span className="text-sparkitt-cyan uppercase tracking-widest text-sm font-bold mb-4 block">About SparKitt</span>
+                        <h1 className="text-5xl md:text-7xl font-bold font-heading mb-8 leading-tight">
+                            Where Science Meets <span className="text-primary text-glow">Emotion</span>
+                        </h1>
+                        <div className="space-y-6 text-gray-400 text-lg">
+                            <p>
+                                At SparKitt, we are not just researchers; we are behavioral architects. We bridge the gap between raw data and human desire by decoding the subconscious drivers that dictate consumer behavior.
+                            </p>
+                            <p>
+                                Our mission is to transform abstract feelings into measurable metrics. By combining state-of-the-art neuro-technology with deep psychological insights, we empower brands to forge unbreakable emotional connections with their audiences.
+                            </p>
+                            <p>
+                                Welcome to the NeuroSphere—where every click, glance, and heartbeat is a data point waiting to be understood.
+                            </p>
                         </div>
-                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
-                            {feature.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            {feature.desc}
-                        </p>
                     </motion.div>
-                ))}
-            </motion.div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="relative h-[600px] w-full rounded-3xl glass-panel overflow-hidden border-white/5"
+                    >
+                        <div className="absolute inset-0 z-0">
+                            <EmotionOrb />
+                        </div>
+                        <div className="absolute bottom-8 left-8 right-8 z-10 glass-panel p-6 rounded-2xl">
+                            <h3 className="text-xl font-bold mb-2">The Emotion Orb</h3>
+                            <p className="text-sm text-gray-400">A real-time 3D representation of dynamic human emotion, driven by distortion algorithms.</p>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
         </div>
     );
 }

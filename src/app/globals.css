@@ -47,15 +47,23 @@
 
 /* Custom Utilities */
 .glass-panel {
-  @apply bg-black/60 backdrop-blur-xl border border-white/10;
+  @apply bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/10;
 }
 
 .text-glow {
   text-shadow: 0 0 20px rgba(255, 65, 0, 0.5);
 }
 
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
 .btn-glow {
   box-shadow: 0 0 20px rgba(255, 65, 0, 0.3);
+}
+
+.btn-glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
 }
 
 /* Smooth Scrolling */

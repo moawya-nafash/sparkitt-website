@@ -23,7 +23,10 @@ export default function Header() {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about" },
-        { name: "Services", href: "/services" },
+        { name: "Pillars", href: "/pillars" },
+        { name: "Technology", href: "/technology" },
+        { name: "Portfolio", href: "/portfolio" },
+        { name: "Process", href: "/process" },
     ];
 
     return (
@@ -130,7 +133,7 @@ export default function Header() {
 
                         {/* Background decorative elements */}
                         <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
-                        <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+                        <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-sparkitt-cyan/10 rounded-full blur-[100px] pointer-events-none" />
                     </motion.div>
                 )}
             </AnimatePresence>

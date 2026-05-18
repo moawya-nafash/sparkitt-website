@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +9,7 @@ import CustomCursor from "@/components/layout/CustomCursor";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sparkitt.info"),
@@ -98,7 +99,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={cn(inter.variable, "font-sans antialiased bg-black text-white overflow-x-hidden w-full max-w-[100vw]")}>
+      <body className={cn(inter.variable, outfit.variable, "font-sans antialiased bg-black text-white overflow-x-hidden w-full max-w-[100vw]")}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

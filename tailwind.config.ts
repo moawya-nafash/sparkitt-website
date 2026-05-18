@@ -54,7 +54,8 @@ const config: Config = {
         },
         sparkitt: {
           orange: "#ff4100",
-          black: "#000000",
+          cyan: "#00F0FF",
+          black: "#0A0A0A",
           dark: "#1a1a1a",
           gray: "#cccccc",
         },
@@ -66,6 +67,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
+        heading: ["var(--font-outfit)", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
