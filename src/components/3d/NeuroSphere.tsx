@@ -4,7 +4,6 @@ import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere, PointMaterial, Points } from "@react-three/drei";
 import * as THREE from "three";
-import { useMediaQuery } from "@/lib/utils";
 
 function ParticleSphere() {
   const pointsRef = useRef<THREE.Points>(null);
