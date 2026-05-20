@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import {
     BrainCircuit, Eye, Video, Package, Utensils, Smartphone, Store,
-    Search, Users, Activity, Telescope,
+    Search, Users, Activity, Telescope, Layers,
     Compass, Briefcase, TrendingUp, Megaphone, ShieldCheck,
     MonitorPlay, AudioLines, Heart
 } from "lucide-react";
