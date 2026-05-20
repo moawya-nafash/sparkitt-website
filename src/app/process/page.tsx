@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 
 const processSteps = [
-    { title: "Discovery & Briefing", desc: "Understanding your brand challenges and setting precise objectives." },
-    { title: "Neuro-Research Design", desc: "Crafting a custom methodology combining EEG, Eye-Tracking, and psychological surveys." },
-    { title: "Participant Recruitment", desc: "Selecting a highly targeted demographic sample for accurate insights." },
-    { title: "Baseline Calibration", desc: "Establishing individual emotional baselines to ensure precise data measurement." },
-    { title: "Stimuli Exposure", desc: "Testing your ads, products, or UX while recording real-time biometric data." },
-    { title: "Data Collection", desc: "Gathering massive amounts of subconscious and physiological data points." },
-    { title: "AI Processing", desc: "Running the raw data through our proprietary AI models to filter noise." },
-    { title: "Insight Generation", desc: "Translating complex brainwaves into actionable marketing insights." },
-    { title: "Strategy Formulation", desc: "Developing a strategic plan based on the 'Brands on the Therapy Couch' framework." },
-    { title: "Performance Tracking", desc: "Monitoring the implementation and measuring the real-world ROI." },
+    { title: "Discovery Workshop", desc: "Understand the client's objectives, business challenge, target audience, and object of testing." },
+    { title: "Test Design", desc: "Build the neurotesting protocol, stimulus structure, testing flow, and measurement framework." },
+    { title: "Neuro-Sampling", desc: "Define and recruit the right participants based on the client's target audience and customer segments." },
+    { title: "Implementation Setup", desc: "Choose between two execution models: SparKitt field deployment or remote client-led testing with SparKitt supervision." },
+    { title: "Neurotechnology Testing", desc: "Collect data using EEG, Meta glasses, neuro-mobile platforms, eye-tracking, and predictive fMRI." },
+    { title: "Data Cleaning", desc: "Validate, clean, synchronize, and prepare all neuro, visual, and behavioral data." },
+    { title: "Data Modeling", desc: "Use AI, machine learning, and statistical analysis to detect attention, emotion, friction, and engagement patterns." },
+    { title: "Neuroscientific Explanation", desc: "Explain the results through neuroscience, psychology, and behavioral science." },
+    { title: "Recommendations", desc: "Translate insights into strategic, creative, communication, and experience improvements." },
+    { title: "Final Report & Presentation", desc: "Deliver and present the final report with clear findings, implications, and action-oriented recommendations." },
 ];
 
 export default function ProcessPage() {

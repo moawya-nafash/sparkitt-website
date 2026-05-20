@@ -8,21 +8,21 @@ const pillars = [
     {
         id: 1,
         title: "Neuromarketing",
-        description: "Understanding the biological and neural responses to marketing stimuli.",
+        description: "The science of understanding how consumers truly feel, think, and decide beyond what they say. By decoding brain activity, it measures attention, engagement, and emotional responses to uncover what truly influences decision-making.",
         icon: <Brain className="w-8 h-8 text-sparkitt-cyan" />,
         delay: 0.1
     },
     {
         id: 2,
         title: "Brand Psychology",
-        description: "Building deep emotional connections based on 'Brands on the Therapy Couch' principles.",
+        description: "An approach to brand thinking through the lens of psychology, not just marketing. It helps identify what is holding a brand back and builds emotionally intelligent, behaviorally aligned strategies that incorporate neuromarketing insights.",
         icon: <Heart className="w-8 h-8 text-primary" />,
         delay: 0.2
     },
     {
         id: 3,
         title: "Multisensory Experience",
-        description: "Designing holistic brand interactions across all human senses.",
+        description: "A way of creating brand experiences through sound, texture, rhythm, color, and touchpoints that people can truly feel. It makes the brand more memorable, immersive, and emotionally connected by applying neurological and psychological insights.",
         icon: <Layers className="w-8 h-8 text-white" />,
         delay: 0.3
     }

@@ -45,12 +45,12 @@ export default function Header() {
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="relative z-50 group">
-                        <div className="relative h-20 w-48 md:h-28 md:w-72 transition-transform duration-300 group-hover:scale-105">
+                        <div className="relative h-7 w-28 md:h-10 md:w-40 transition-transform duration-300 group-hover:scale-105">
                             <Image
-                                src="/media/images/logo.avif"
+                                src="/media/images/logo_cropped.avif"
                                 alt="Sparkitt Logo"
                                 fill
-                                className="object-contain"
+                                style={{ objectFit: "contain", objectPosition: "left" }}
                                 priority
                             />
                         </div>

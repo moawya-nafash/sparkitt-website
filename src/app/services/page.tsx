@@ -11,107 +11,112 @@ import {
 export default function Services() {
     const categories = [
         {
-            title: "Neuromarketing Services",
-            description: "Using biometric tools (EEG, Eye-tracking, GSR) to uncover subconscious consumer drivers.",
+            title: "Neuromarketing: Neurotests & Research",
+            description: "Advanced biometric testing to capture subconscious consumer responses, attention, and sensory feedback.",
             icon: BrainCircuit,
             items: [
                 {
-                    title: "Visual Identity Testing",
-                    content: "Testing logos, colors, and design elements using AI-based eye-tracking to see what captures attention first.",
-                    benefit: "Ensures the brand is seen clearly and in the right order.",
-                    icon: Eye
+                    title: "Market & Consumer Behavior Analysis",
+                    content: "Deep qualitative and quantitative analysis of consumer habits and subconscious drivers.",
+                    benefit: "Bypasses conscious bias to reveal true purchasing triggers.",
+                    icon: Search
                 },
                 {
-                    title: "AI-Generated Videos Testing",
-                    content: "Evaluating engagement and emotional intensity of AI-produced content before launch.",
-                    benefit: "Optimizes marketing spend by knowing which video version performs best.",
-                    icon: Video
+                    title: "Product Testing",
+                    content: "Evaluating real-time customer reactions and interaction flow with physical products.",
+                    benefit: "Provides objective metrics on product usability and satisfaction.",
+                    icon: Package
                 },
                 {
                     title: "Blind Taste Testing",
-                    content: "Measuring authentic sensory judgment by stripping away brand bias.",
-                    benefit: "Validates if the product experience matches the brand's emotional power.",
+                    content: "Triple-blind product evaluation to isolate pure sensory flavor and texture perception.",
+                    benefit: "Verifies if the physical product matches the brand's premium positioning.",
                     icon: Utensils
                 },
                 {
                     title: "Packaging Effectiveness Testing",
-                    content: "Using EEG and eye-tracking to evaluate if packaging triggers the right psychological response.",
-                    benefit: "Identifies sensory triggers that lead to purchase.",
+                    content: "Using eye-tracking and EEG to assess design contrast, brand hierarchy, and shelf standout.",
+                    benefit: "Maximizes point-of-sale attention and purchase conversion.",
                     icon: Package
                 },
                 {
-                    title: "UI/UX Testing",
-                    content: "Tracking brain activity (EEG) and emotional arousal (GSR) while users navigate digital interfaces.",
-                    benefit: "Reduces cognitive load and friction in the user journey.",
-                    icon: Smartphone
-                },
-                {
-                    title: "Advertising Campaign Testing",
-                    content: "Pre-testing digital and traditional ads to assess clarity and emotional resonance.",
-                    benefit: "Eliminates guesswork and boosts conversion potential.",
-                    icon: MonitorPlay
-                },
-                {
                     title: "In-Store Communication Testing",
-                    content: "Mapping shopper navigation and attention within physical environments.",
-                    benefit: "Optimizes store layout and shelf logic to maximize sales.",
+                    content: "Mapping shopper pathways, visual navigation, and shelf interaction patterns.",
+                    benefit: "Optimizes store layouts and signage to reduce shopper friction.",
                     icon: Store
                 },
                 {
-                    title: "Sonic Branding Testing",
-                    content: "Measuring emotional resonance and memory recall of music, voiceovers, and jingles.",
-                    benefit: "Creates a consistent sensory thread across all touchpoints.",
-                    icon: AudioLines
-                }
-            ]
-        },
-        {
-            title: "Research Services",
-            description: "A data-literate approach to understanding the market landscape and audience.",
-            icon: Search,
-            items: [
-                {
-                    title: "Market Research",
-                    content: "Deep dives into market needs and competitive landscape assessments (Exploratory, Descriptive, Causal).",
-                    benefit: "Provides intelligence-based strategies instead of assumptions.",
-                    icon: Search
+                    title: "Visual Identity & Campaign Testing",
+                    content: "Evaluating posters, ads, and digital creatives for brand recall, emotional intensity, and focus order.",
+                    benefit: "Ensures key messages and CTAs are seen in the first 3 seconds.",
+                    icon: Eye
                 },
                 {
-                    title: "Consumer Behavior & Perception",
-                    content: "Mapping unspoken motivations and emotional drivers through psychological interviews.",
-                    benefit: "Delivers a clear 'road map' of the audience's emotional dashboard.",
-                    icon: Users
+                    title: "Sonic Branding Testing",
+                    content: "Measuring the psychological resonance, emotional fit, and memory recall of voiceovers and music.",
+                    benefit: "Builds a cohesive auditory identity that reinforces brand trust.",
+                    icon: AudioLines
+                },
+                {
+                    title: "UI/UX Interface Testing",
+                    content: "EEG and biometric tracking during digital onboarding and interface navigation.",
+                    benefit: "Pinpoints exactly where users experience confusion or cognitive overload.",
+                    icon: Smartphone
                 }
             ]
         },
         {
-            title: "Strategic Services",
-            description: "Developing science-backed roadmaps for business growth and communication.",
+            title: "Strategies Based on Neuro and Psychology",
+            description: "Psychologically grounded growth strategies, brand diagnosis, and behaviorally aligned positioning frameworks.",
             icon: Compass,
             items: [
                 {
-                    title: "Business & Brand Strategy",
-                    content: "Diagnosing 'Brand Disorders' using the proprietary BranDisorders Wheel.",
-                    benefit: "Leads to strategies that are emotionally intelligent and scientifically sound.",
+                    title: "Brand Strategy & Diagnosis",
+                    content: "Diagnosing emotional alignment and identity ailments using the BranDisorders Wheel framework.",
+                    benefit: "Resolves underlying identity confusion to build emotional equity.",
                     icon: Briefcase
                 },
                 {
-                    title: "Growth & Go-to-Market Strategy",
-                    content: "Building scalable models rooted in behavioral intelligence and data accuracy.",
-                    benefit: "Enables businesses to make confident decisions and reduce strategic errors.",
-                    icon: TrendingUp
+                    title: "Multisensory Strategy",
+                    content: "Designing integrated sensory profiles, including signature scents (olfactory), sounds, and textures.",
+                    benefit: "Creates a deeply immersive, multi-dimensional brand memory.",
+                    icon: Layers
                 },
                 {
-                    title: "Digital Marketing & Social Strategy",
-                    content: "Developing data-informed personalization strategies that adapt in real-time.",
-                    benefit: "Transforms raw data into clear strategic direction.",
+                    title: "360 MarCom Strategy",
+                    content: "Behavioral-science-aligned marketing communication frameworks across all customer touchpoints.",
+                    benefit: "Ensures message consistency and psychological resonance.",
                     icon: Megaphone
                 },
                 {
-                    title: "Customer Loyalty & Program Impact",
-                    content: "Testing the emotional impact of rewards and habit-loop mechanics.",
-                    benefit: "Builds loyalty that is not just transactional, but deeply felt.",
+                    title: "Go-To-Market Strategy",
+                    content: "Data-backed commercialization models based on objective neuromarketing test insights.",
+                    benefit: "Reduces market entry risks and optimizes advertising budgets.",
+                    icon: TrendingUp
+                },
+                {
+                    title: "Digital Marketing Strategy",
+                    content: "Conversion rate optimization (CRO) and hyper-personalized digital journeys.",
+                    benefit: "Turns raw digital traffic into highly engaged, loyal customers.",
                     icon: Heart
+                },
+                {
+                    title: "Social Media Strategy",
+                    content: "Content and engagement protocols mapped directly to the target demographic's emotional dashboard.",
+                    benefit: "Amplifies brand trust, community size, and viral potential.",
+                    icon: Users
+                },
+                {
+                    title: "Audience Mapping & Analysis",
+                    content: "Building deep psychographic personas using psychological archetypes and neuro-segmentation.",
+                    benefit: "Allows precise personalization of messaging and product features.",
+                    icon: BrainCircuit
+                },
+                {
+                    title: "Positioning Strategy",
+                    content: "Identifying perceptual white spaces and establishing a unique psychological niche.",
+                    benefit: "Positions the brand as the obvious, emotionally preferred choice.",
+                    icon: Telescope
                 }
             ]
         }

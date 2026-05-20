@@ -63,17 +63,52 @@ export default function HeroSection() {
             
             {/* Scroll Indicator */}
             <motion.div 
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-gray-500"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 pointer-events-none"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
             >
-                <span className="text-xs tracking-widest uppercase">Scroll to Explore</span>
-                <motion.div 
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                    className="w-[1px] h-12 bg-gradient-to-b from-gray-500 to-transparent"
-                />
+                {/* Scroll Text */}
+                <motion.span 
+                    animate={{ 
+                        color: ["rgba(255,255,255,0.3)", "rgba(255,255,255,0.7)", "rgba(255,255,255,0.3)"],
+                        letterSpacing: ["0.2em", "0.25em", "0.2em"]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="text-[10px] uppercase font-bold text-white/30 tracking-[0.2em] select-none font-sans"
+                >
+                    Scroll to Explore
+                </motion.span>
+
+                {/* Mouse Capsule */}
+                <div className="relative w-6 h-10 rounded-full border border-white/20 flex justify-center pt-2 bg-black/40 backdrop-blur-xs shadow-[inset_0_0_8px_rgba(255,255,255,0.05)]">
+                    {/* Glowing Wheel Dot */}
+                    <motion.div 
+                        animate={{ 
+                            y: [0, 12, 0],
+                            opacity: [1, 0.4, 1]
+                        }}
+                        transition={{ 
+                            duration: 2, 
+                            repeat: Infinity, 
+                            ease: "easeInOut"
+                        }}
+                        className="w-1 h-2 rounded-full bg-gradient-to-b from-primary to-sparkitt-cyan shadow-[0_0_8px_#ff4100]"
+                    />
+                </div>
+
+                {/* Vertical Pulse Line */}
+                <div className="relative w-[1px] h-12 overflow-hidden bg-white/10">
+                    <motion.div 
+                        animate={{ y: ["-100%", "100%"] }}
+                        transition={{ 
+                            duration: 2, 
+                            repeat: Infinity, 
+                            ease: "linear"
+                        }}
+                        className="absolute left-0 top-0 w-full h-8 bg-gradient-to-b from-transparent via-sparkitt-cyan to-transparent shadow-[0_0_8px_#00F0FF]"
+                    />
+                </div>
             </motion.div>
         </section>
     );

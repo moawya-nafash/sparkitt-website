@@ -1,33 +1,48 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-function ConnectedParticles({ count = 80, connectionDistance = 3.5 }) {
+function ConnectedParticles({ count = 100, connectionDistance = 3.5 }) {
     const mesh = useRef<THREE.InstancedMesh>(null);
     const linesGeometry = useRef<THREE.BufferGeometry>(null);
 
-    // Initialize particles
+    // Initialize particles with different colors
     const particles = useMemo(() => {
         const temp = [];
+        const colors = ["#ff4100", "#00f0ff", "#ffffff"];
         for (let i = 0; i < count; i++) {
             const x = (Math.random() - 0.5) * 25;
             const y = (Math.random() - 0.5) * 25;
             const z = (Math.random() - 0.5) * 10;
+            const colorStr = colors[Math.floor(Math.random() * colors.length)];
             temp.push({
                 position: new THREE.Vector3(x, y, z),
                 velocity: new THREE.Vector3(
                     (Math.random() - 0.5) * 0.02,
                     (Math.random() - 0.5) * 0.02,
                     (Math.random() - 0.5) * 0.02
-                )
+                ),
+                color: new THREE.Color(colorStr)
             });
         }
         return temp;
     }, [count]);
 
     const dummy = useMemo(() => new THREE.Object3D(), []);
+
+    // Set instance colors on mount
+    useEffect(() => {
+        if (mesh.current) {
+            particles.forEach((particle, i) => {
+                mesh.current!.setColorAt(i, particle.color);
+            });
+            if (mesh.current.instanceColor) {
+                mesh.current.instanceColor.needsUpdate = true;
+            }
+        }
+    }, [particles]);
 
     // Prepare line geometry buffers (max connections approximation)
     const linePositions = useMemo(() => new Float32Array(count * count * 3), [count]);
@@ -106,13 +121,13 @@ function ConnectedParticles({ count = 80, connectionDistance = 3.5 }) {
             {/* Dots */}
             <instancedMesh ref={mesh} args={[undefined, undefined, count]}>
                 <sphereGeometry args={[0.04, 16, 16]} />
-                <meshBasicMaterial color="#ff4100" transparent opacity={0.6} />
+                <meshBasicMaterial color="#ffffff" transparent opacity={0.6} />
             </instancedMesh>
 
             {/* Lines */}
             <lineSegments>
                 <bufferGeometry ref={linesGeometry} />
-                <lineBasicMaterial color="#ff4100" transparent opacity={0.15} blending={THREE.AdditiveBlending} />
+                <lineBasicMaterial color="#ffffff" transparent opacity={0.15} blending={THREE.AdditiveBlending} />
             </lineSegments>
         </>
     );

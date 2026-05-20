@@ -5,24 +5,19 @@ import { Activity, Eye, Cpu, BrainCircuit } from "lucide-react";
 
 const techStack = [
     {
-        name: "Electroencephalography (EEG)",
-        desc: "We track electrical brain activity in real-time to measure metrics like cognitive workload, emotional engagement, and attention span. This tells us exactly when a user loses interest or feels excited.",
+        name: "EEG-Emotion Maps (Electroencephalogram)",
+        desc: "EEG captures real-time brainwave activity to measure attention, engagement, emotional intensity, and cognitive load as consumers interact with ads, packaging, products, and digital experiences without needing them to say a word. This helps discover what triggers emotion or causes mental effort, giving brands a window into the subconscious mind.",
         icon: <Activity className="w-10 h-10 text-sparkitt-cyan" />
     },
     {
-        name: "AI-Powered Eye-Tracking",
-        desc: "Using advanced computer vision, we map exactly where users look, how long they fixate on specific elements, and what they ignore. Perfect for optimizing UX/UI and ad placements.",
+        name: "Eye-Tracking Attention Maps (AI-Based)",
+        desc: "AI-based Eye-tracking predicts where people will look first in any visual design within 3 to 5 seconds. Trained on over 5.5 million real eye movements to simulate human vision with up to 96% accuracy, it shows exactly which parts of a post, ad, or UI draw attention and which get ignored, allowing pre-publishing optimization.",
         icon: <Eye className="w-10 h-10 text-primary" />
     },
     {
-        name: "Predictive fMRI Models",
-        desc: "We leverage predictive AI models trained on fMRI data to forecast deep emotional and subconscious reactions without the need for an MRI machine. Precision targeting based on neuroscience.",
+        name: "Predictive fMRI Mapping",
+        desc: "An advanced neuroscience modeling tool that estimates how the brain responds at the cortical level, based on measured neural and physiological signals. Using AI-driven modeling, it translates collected neuro-data into probable brain-response maps to reveal deep neural patterns (immersive flow, cognitive readiness, recovery-oriented states).",
         icon: <Cpu className="w-10 h-10 text-white" />
-    },
-    {
-        name: "Biometric Sentiment Analysis",
-        desc: "Monitoring heart rate variability (HRV) and galvanic skin response (GSR) to quantify physiological arousal and emotional intensity during brand interactions.",
-        icon: <BrainCircuit className="w-10 h-10 text-sparkitt-cyan" />
     }
 ];
 

@@ -9,28 +9,46 @@ const pillarsData = [
         id: "neuromarketing",
         title: "Neuromarketing",
         subtitle: "Unlocking the Subconscious",
-        description: "We use advanced neuro-scientific tools to measure the biological and neural responses to marketing stimuli. Forget what consumers say—we uncover what they actually feel.",
+        description: "The science of understanding how consumers truly feel, think, and decide beyond what they say. By decoding brain activity using EEG, visual fixation maps, and cognitive load algorithms, we measure attention, engagement, and emotional responses to uncover what truly influences decision-making.",
         icon: <Brain className="w-12 h-12 text-sparkitt-cyan" />,
         color: "from-sparkitt-cyan/20 to-transparent",
-        features: ["Subconscious Emotional Measurement", "Cognitive Load Analysis", "Attention Tracking"]
+        image: "/media/images/pillar_neuromarketing.png",
+        features: [
+            "EEG-Emotion Subconscious Mapping",
+            "Cognitive Workload & Arousal Analysis",
+            "Attention & Fixation Path Tracking",
+            "Emotional Intensity Diagnostics"
+        ]
     },
     {
         id: "brand-psychology",
         title: "Brand Psychology",
         subtitle: "Brands on the Therapy Couch",
-        description: "Based on our psychological frameworks, we treat brands like human personalities. We dive deep into the psyche to build emotional connections that turn casual buyers into loyal advocates.",
+        description: "An approach to brand thinking through the lens of psychology, not just marketing. This pillar utilizes our proprietary BranDisorders Wheel, diagnosing 20 distinct brand ailments (e.g. Identity Confusion, Audience Misalignment, Emotional Disconnection) and applying the AntiBrandiotics framework to reverse, treat, or prevent core brand struggles.",
         icon: <Heart className="w-12 h-12 text-primary" />,
         color: "from-primary/20 to-transparent",
-        features: ["Personality Archetyping", "Emotional Resonance", "Behavioral Triggers"]
+        image: "/media/images/pillar_psychology.png",
+        features: [
+            "20-Point BranDisorders Diagnostics",
+            "AntiBrandiotics Action Frameworks",
+            "Subconscious Motivator Alignment",
+            "Identity Archetyping & Personality Design"
+        ]
     },
     {
         id: "multisensory",
         title: "Multisensory Experience",
         subtitle: "Engaging All Senses",
-        description: "A brand is more than just a logo. We design holistic experiences that trigger multiple human senses simultaneously, creating deeply embedded memories and driving action.",
+        description: "A way of creating brand experiences through sound, texture, rhythm, color, and touchpoints that people can truly feel. Because the brain is wired for multisensory integration, we design cognitive harmony across all touchpoints (sonic branding, tactile package cues, visual tempos) to make brands deeply memorable and immersive.",
         icon: <Layers className="w-12 h-12 text-white" />,
         color: "from-white/20 to-transparent",
-        features: ["Sonic Branding Validation", "Haptic Feedback Analysis", "Sensory Integration"]
+        image: "/media/images/pillar_sensory.png",
+        features: [
+            "Sonic Branding & Voiceover Resonance",
+            "Tactile & Haptic Product Evaluation",
+            "Visual Tempo & Rhythm Pacing",
+            "Shopper Sensory Mapping"
+        ]
     }
 ];
 
@@ -68,30 +86,20 @@ export default function PillarsPage() {
                     >
                         {/* Visual */}
                         <div className="w-full md:w-1/2 relative h-[400px] rounded-3xl glass-panel overflow-hidden group">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} opacity-40 group-hover:opacity-60 transition-opacity duration-500`} />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <motion.div 
-                                    animate={{ y: [0, -10, 0] }} 
-                                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                                    className="p-8 rounded-full bg-black/50 backdrop-blur-xl border border-white/10"
-                                >
-                                    {pillar.icon}
-                                </motion.div>
-                            </div>
+                            <Image 
+                                src={pillar.image}
+                                alt={pillar.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                priority
+                            />
+                            {/* Subtle overlay gradient to keep design system cohesive */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} opacity-30 mix-blend-overlay z-10`} />
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10" />
                             
-                            {/* Decorative Particles */}
-                            <div className="absolute inset-0 pointer-events-none opacity-30">
-                                {[...Array(20)].map((_, i) => (
-                                    <div 
-                                        key={i} 
-                                        className="absolute w-1 h-1 bg-white rounded-full"
-                                        style={{
-                                            top: `${Math.random() * 100}%`,
-                                            left: `${Math.random() * 100}%`,
-                                            animation: `pulse ${2 + Math.random() * 3}s infinite`
-                                        }}
-                                    />
-                                ))}
+                            {/* Small floating icon badge in the corner */}
+                            <div className="absolute top-6 left-6 p-4 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10 z-20">
+                                {pillar.icon}
                             </div>
                         </div>
 
