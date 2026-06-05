@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import NeuroSphere from "@/components/3d/NeuroSphere";
+import dynamic from "next/dynamic";
+
+const NeuroSphere = dynamic(() => import("@/components/3d/NeuroSphere"), {
+    ssr: false,
+    loading: () => <div className="absolute inset-0 bg-black" />
+});
 
 export default function HeroSection() {
     return (
